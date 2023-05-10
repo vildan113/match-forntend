@@ -1,4 +1,4 @@
-const Matches: Match[] = [
+const Matches: IMatch[] = [
 	{
 		v: 2,
 		id: 450747990,

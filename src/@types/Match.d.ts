@@ -1,4 +1,4 @@
-interface Match {
+interface IMatch {
     v: number
     id: number
     team1: string
@@ -21,12 +21,12 @@ interface Match {
     country: string
     hash: string
     actual_at: string
-    league: League
-    markets: Markets
-    stats?: Stats
+    league: ILeague
+    markets: IMarkets
+    stats?: IStats
 }
 
-interface League {
+interface ILeague {
     country_id: number
     league_id: number
     sport_id: number
@@ -37,41 +37,41 @@ interface League {
     isSpecial: boolean
 }
 
-interface Markets {
-    totals: Total[]
-    totals1: Total[]
-    totals2: Total[]
-    totalsAsian: Total[]
-    totals1Asian: Total[]
-    totals2Asian: Total[]
-    handicaps1: Handicap[]
-    handicaps2: Handicap[]
+interface IMarkets {
+    totals: TTotal[]
+    totals1: TTotal[]
+    totals2: TTotal[]
+    totalsAsian: TTotal[]
+    totals1Asian: TTotal[]
+    totals2Asian: TTotal[]
+    handicaps1: THandicap[]
+    handicaps2: THandicap[]
     bothToScore: {
-        yes: Value
-        no: Value
+        yes: TValue
+        no: TValue
     } | {}
-    half: Value | {}
-    win1?: Value
-    winX?: Value
-    win2?: Value
-    win1X?: Value
-    win12?: Value
-    winX2?: Value
+    half: TValue | {}
+    win1?: TValue
+    winX?: TValue
+    win2?: TValue
+    win1X?: TValue
+    win12?: TValue
+    winX2?: TValue
 }
 
-type Total = {
+type TTotal = {
     type: number
-    over: Value
-    under: Value
+    over: TValue
+    under: TValue
 }
 
-type Handicap = {
+type THandicap = {
     type: number
-} & Value
+} & TValue
 
-type Value = { v: number }
+type TValue = { v: number }
 
-interface Stats {
+interface IStats {
     corners1?: number
     yellow_cards1?: number
     red_cards1?: number

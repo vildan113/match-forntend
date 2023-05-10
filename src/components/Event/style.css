@@ -1,0 +1,118 @@
+.sport-event {
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+	height: 42px;
+	font-size: 11px;
+	gap: 5px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.sport-event--compact {
+	height: 30px;
+}
+
+.sport-event:hover {
+	background-color: #fafafa;
+}
+
+.sport-event__favorite-icon {
+	min-width: 18px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.sport-event__favorite-icon img {
+	width: 14px;
+}
+
+.sport-event__favorite-icon:hover img {
+	width: 18px;
+}
+
+.sport-event__main {
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	gap: 5px;
+}
+
+.sport-event--compact .sport-event__main {
+	flex-direction: row;
+}
+
+.sport-event__main-left {
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+}
+.sport-event__name {
+	color: #000;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.sport-event__name:hover {
+	text-decoration: underline;
+	color: #24668c;
+}
+
+.sport-event__main-right {
+	display: flex;
+	overflow: hidden;
+	gap: 5px;
+	align-items: center;
+}
+
+.sport-event__clock-icon {
+	min-width: 14px;
+}
+
+.sport-event__time {
+	font-weight: 600;
+}
+
+.sport-event__score {
+	font-weight: 700;
+	color: #24668c;
+}
+
+.sport-event__planned-time {
+	color: #192a3ecc;
+	white-space: nowrap;
+}
+
+.sport-event__value {
+	cursor: pointer;
+	background-color: #f1f4f8;
+	min-width: 50px;
+	text-align: center;
+	line-height: 24px;
+	border-radius: 2px;
+	color: #121212;
+	border: 1px solid #ebeff5;
+	font-weight: 700;
+	overflow: hidden;
+}
+
+.sport-event--compact .sport-event__value {
+	min-width: 40px;
+	line-height: 18px;
+}
+
+.sport-event__total {
+	min-width: 40px;
+	text-align: center;
+	color: #24668c;
+	overflow: hidden;
+	font-weight: 600;
+}
+
+.sport-event__value:hover {
+	background-color: #dfe4ea;
+	border-color: #1c5fb014;
+}

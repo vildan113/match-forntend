@@ -1,10 +1,10 @@
 import { FC } from "react"
 import "./style.css"
 
-interface IButton extends React.ComponentProps<"a"> {
+interface IButtonProps extends React.ComponentProps<"a"> {
 	type?: "default" | "primary"
 }
-const Button: FC<IButton> = ({ children, type = "default", ...rest }) => {
+const Button: FC<IButtonProps> = ({ children, type = "default", ...rest }) => {
 	return (
 		<a
 			{...rest}
