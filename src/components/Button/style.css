@@ -1,0 +1,37 @@
+.button {
+	display: inline-block;
+	padding: 0 10px;
+	line-height: 24px;
+	color: var(--white-color);
+	outline: none;
+	border-radius: 2px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 12px;
+	transition: all ease 200ms;
+	cursor: pointer;
+}
+
+.button--primary {
+	background-color: #571ce0;
+}
+
+.button--primary:hover {
+	background-color: #291b6b;
+}
+
+.button--primary:active {
+	background-color: #291b6b;
+}
+
+.button--default {
+	background-color: #2f2f2f;
+}
+
+.button--default:hover {
+	background-color: #414141;
+}
+
+.button--default:active {
+	background-color: #1e1e1e;
+}
