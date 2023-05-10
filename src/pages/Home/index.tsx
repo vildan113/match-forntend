@@ -2,6 +2,7 @@ import bannerImage from "assets/images/banner-bg.png"
 import coin1Image from "assets/images/coin-1.webp"
 import coin2Image from "assets/images/coin-2.webp"
 import { FC } from "react"
+import Button from "src/components/Button"
 import "./style.css"
 
 const Home: FC = () => {
@@ -45,13 +46,13 @@ const Home: FC = () => {
 							tincidunt sagittis eros. Quisque quis euismod lorem. Etiam sodales ac
 							felis id interdum.
 						</p>
-						<a
+						<Button
 							href="#"
-							className="homepage__button-primary"
-							style={{ fontSize: "18px" }}
+							type="primary"
+							className="homepage__button"
 						>
 							Get Started
-						</a>
+						</Button>
 					</div>
 					<div className="homepage__image-section">
 						<img
