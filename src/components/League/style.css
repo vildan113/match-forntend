@@ -1,0 +1,57 @@
+.sport-league__header {
+	display: flex;
+	padding: 0 5px;
+	height: 30px;
+	font-size: 11px;
+	align-items: center;
+	background-color: #eff5eb;
+}
+
+.sport-league__header-name {
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.sport-league__header-markets {
+	display: flex;
+	gap: 5px;
+	text-align: center;
+}
+
+.sport-league__header-value {
+	min-width: 50px;
+}
+
+.sport-league__header--compact {
+	height: 20px;
+}
+
+.sport-league__header--compact .sport-league__header-value {
+	min-width: 40px;
+}
+
+@media screen and (max-width: 479px) {
+	.sport-league__header {
+		height: 30px;
+	}
+
+	.sport-league__value {
+		min-width: 40px;
+	}
+
+	.sport-league__header-markets {
+		gap: unset;
+	}
+
+	.sport-league__header-value {
+		min-width: 40px;
+	}
+
+	.sport-league__header-value--total,
+	.sport-league__header-value--total-over,
+	.sport-league__header-value--total-under {
+		display: none;
+	}
+}

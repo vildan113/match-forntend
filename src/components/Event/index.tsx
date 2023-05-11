@@ -4,42 +4,18 @@ import { FC } from "react"
 import { Link } from "react-router-dom"
 import "./style.css"
 
-interface IBasicEventData {
-	url: string
-	team1: {
-		name: string
-		score: number
-	}
-	team2: {
-		name: string
-		score: number
-	}
-	win1: TValue
-	winX: TValue
-	win2: TValue
-	total: TTotal
-}
-
-interface ILiveEventData extends IBasicEventData {
-	isLive: true
-	time: string
-	date?: never
-}
-
-interface ILineEventData extends IBasicEventData {
-	isLive: false
-	date: string
-	time?: never
-}
-
 interface IEventProps {
 	mode?: "default" | "compact"
-	data: ILiveEventData | ILineEventData
+	data: ILiveEvent | ILineEvent
+}
+
+interface IValueProps extends React.ComponentProps<"div"> {
+	value: number | null | undefined
 }
 
 const Event: FC<IEventProps> = ({
 	mode = "default",
-	data: { isLive, url, team1, team2, time, date, win1, winX, win2, total }
+	data: { isLive, url, team1, team2, time, date_start, markets }
 }) => {
 	return (
 		<div className={`sport-event sport-event--${mode}`}>
@@ -70,19 +46,49 @@ const Event: FC<IEventProps> = ({
 						<span className="sport-event__score-team2">{team2.score}</span>
 					</div>
 				) : (
-					<div className="sport-event__main-date">{date}</div>
+					<div className="sport-event__main-date">{date_start}</div>
 				)}
 			</div>
 			<div className="sport-event__markets">
-				<div className="sport-event__value sport-event__value--win-1">{win1.v}</div>
-				<div className="sport-event__value sport-event__value--win-X">{winX.v}</div>
-				<div className="sport-event__value sport-event__value--win-2">{win2.v}</div>
-				<div className="sport-event__total">{total.type}</div>
-				<div className="sport-event__value sport-event__total-over">{total.over.v}</div>
-				<div className="sport-event__value sport-event__total-under">{total.under.v}</div>
+				<Value
+					className="sport-event__value sport-event__value--win-1"
+					value={markets.win1}
+				/>
+				<Value
+					className="sport-event__value sport-event__value--win-X"
+					value={markets.winX}
+				/>
+				<Value
+					className="sport-event__value sport-event__value--win-2"
+					value={markets.win2}
+				/>
+				<Value
+					className="sport-event__total"
+					value={markets.total?.type}
+				/>
+				<Value
+					className="sport-event__value sport-event__value--total-over"
+					value={markets.total?.over}
+				/>
+				<Value
+					className="sport-event__value sport-event__value--total-under"
+					value={markets.total?.under}
+				/>
 			</div>
 		</div>
 	)
+}
+const Value: FC<IValueProps> = ({ value, ...rest }) => {
+	if (value == null)
+		return (
+			<div
+				{...rest}
+				style={{ cursor: "default" }}
+			>
+				-
+			</div>
+		)
+	return <div {...rest}>{value}</div>
 }
 
 export default Event
