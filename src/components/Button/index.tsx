@@ -4,11 +4,12 @@ import "./style.css"
 interface IButtonProps extends React.ComponentProps<"a"> {
 	type?: "default" | "primary"
 }
-const Button: FC<IButtonProps> = ({ children, type = "default", ...rest }) => {
+
+const Button: FC<IButtonProps> = ({ children, type = "default", className, ...rest }) => {
 	return (
 		<a
 			{...rest}
-			className={`${rest.className} button button--${type}`}
+			className={`button button--${type} ${className || ""}`}
 		>
 			{children}
 		</a>

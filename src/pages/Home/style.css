@@ -1,20 +1,3 @@
-.header {
-	background: var(--body-color);
-}
-
-.menu__link:hover {
-	color: unset;
-	background-color: unset;
-}
-
-.menu__link span {
-	transition: all 300ms ease;
-}
-
-.menu__link:hover span {
-	transform: translateY(-10px);
-}
-
 .homepage {
 	display: flex;
 	box-sizing: border-box;
@@ -47,34 +30,28 @@
 }
 
 .homepage__button {
+	line-height: 24px;
 	padding: 12px 25px;
 	font-size: 18px;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 }
 
-@media screen and (max-width: 991px) {
-	.homepage__wrap {
-		flex-direction: column;
-	}
-
-	.homepage__text-section {
-		margin-bottom: 40px;
-	}
-
-	.homepage__text-section,
-	.homepage__image-section {
-		max-width: unset;
-	}
-}
-
 @media screen and (max-width: 767px) {
 	.homepage {
-		padding: 60px 15px;
+		padding: 60px 10px;
 	}
 
 	.homepage__container {
 		background-image: none;
+	}
+
+	.homepage__text-section {
+		max-width: unset;
+	}
+
+	.homepage__image-section {
+		display: none;
 	}
 }
 
