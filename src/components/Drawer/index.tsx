@@ -1,6 +1,7 @@
+import cn from "classnames"
 import { FC, cloneElement } from "react"
 import { createPortal } from "react-dom"
-import "./style.css"
+import styles from "./style.module.css"
 
 interface IDrawerProps extends React.ComponentProps<"div"> {
 	isVisible: boolean
@@ -19,19 +20,23 @@ const Drawer: FC<IDrawerProps> = ({
 }) => {
 	return createPortal(
 		<div
-			className={`${className || ""} drawer ${
-				isVisible ? "drawer--visible" : "drawer--hidden"
-			}`}
+			className={cn(
+				className,
+				styles["drawer"],
+				isVisible ? styles["drawer--visible"] : styles["drawer--hidden"]
+			)}
 			{...rest}
 		>
 			<div
-				className="drawer__mask"
+				className={styles["drawer__mask"]}
 				onClick={onClose}
 			></div>
 			{cloneElement(children, {
-				className: `${
-					children.props.className || ""
-				} drawer__wrap drawer__wrap--${placement}`
+				className: cn(
+					children.props.className,
+					styles["drawer__wrap"],
+					styles[`drawer__wrap--${placement}`]
+				)
 			})}
 		</div>,
 		document.body

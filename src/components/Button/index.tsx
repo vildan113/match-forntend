@@ -1,19 +1,46 @@
-import { FC } from "react"
-import "./style.css"
+import cn from "classnames"
+import { ComponentProps, FC } from "react"
+import { Link, LinkProps } from "react-router-dom"
+import styles from "./style.module.css"
 
-interface IButtonProps extends React.ComponentProps<"a"> {
+interface IBaseProps {
 	type?: "default" | "primary"
 }
 
-const Button: FC<IButtonProps> = ({ children, type = "default", className, ...rest }) => {
+type ButtonProps = IBaseProps &
+	ComponentProps<"button"> & { htmlType?: "submit" | "reset" | "button" }
+
+type AnchorProps = IBaseProps &
+	ComponentProps<FC<Omit<LinkProps, "to">>> & { href: string; htmlType?: never }
+
+const Component: FC<ButtonProps | AnchorProps> = ({
+	type = "default",
+	className,
+	htmlType,
+	children,
+	...rest
+}) => {
+	const sharedProps = {
+		className: cn(className, styles["button"], styles[`button--${type}`]),
+		children
+	}
+
+	if ("href" in rest)
+		return (
+			<Link
+				{...rest}
+				{...sharedProps}
+				to={rest.href}
+			/>
+		)
+
 	return (
-		<a
+		<button
 			{...rest}
-			className={`button button--${type} ${className || ""}`}
-		>
-			{children}
-		</a>
+			{...sharedProps}
+			type={htmlType}
+		/>
 	)
 }
 
-export default Button
+export default Component

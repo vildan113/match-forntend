@@ -1,14 +1,15 @@
 import bannerImage from "assets/images/banner-bg.png"
 import coin1Image from "assets/images/coin-1.webp"
 import coin2Image from "assets/images/coin-2.webp"
+import cn from "classnames"
 import { FC } from "react"
 import Button from "src/components/Button"
-import "./style.css"
+import styles from "./style.module.css"
 
 const Home: FC = () => {
 	return (
-		<div className="homepage">
-			<div className="container homepage__container">
+		<div className={styles["homepage"]}>
+			<div className={cn("container", styles["homepage__container"])}>
 				<div className="homepage__content-shape content-shape">
 					<img
 						alt="coin-image"
@@ -16,7 +17,7 @@ const Home: FC = () => {
 						width="63"
 						height="55"
 						decoding="async"
-						className="content-shape__coin-1"
+						className={styles["content-shape__coin-1"]}
 						loading="lazy"
 					/>
 					<img
@@ -25,7 +26,7 @@ const Home: FC = () => {
 						width="89"
 						height="73"
 						decoding="async"
-						className="content-shape__coin-2"
+						className={styles["content-shape__coin-2"]}
 						loading="lazy"
 					/>
 					<img
@@ -34,12 +35,12 @@ const Home: FC = () => {
 						width="63"
 						height="55"
 						decoding="async"
-						className="content-shape__coin-3"
+						className={styles["content-shape__coin-3"]}
 						loading="lazy"
 					/>
 				</div>
-				<div className="homepage__wrap">
-					<div className="homepage__text-section">
+				<div className={styles["homepage__wrap"]}>
+					<div className={styles["homepage__text-section"]}>
 						<h1 style={{ fontSize: "76px", lineHeight: "98.8px" }}>Bet & Win Today!</h1>
 						<p style={{ fontSize: "24px", lineHeight: "36px", marginBottom: "24px" }}>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
@@ -47,14 +48,14 @@ const Home: FC = () => {
 							felis id interdum.
 						</p>
 						<Button
-							href="#"
+							href="/live"
 							type="primary"
-							className="homepage__button"
+							className={styles["homepage__button"]}
 						>
 							Get Started
 						</Button>
 					</div>
-					<div className="homepage__image-section">
+					<div className={styles["homepage__image-section"]}>
 						<img
 							src={bannerImage}
 							decoding="async"

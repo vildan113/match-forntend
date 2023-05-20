@@ -4,12 +4,20 @@
 	line-height: 30px;
 	color: var(--white-color);
 	outline: none;
+	border: none;
 	border-radius: 2px;
+	box-sizing: border-box;
 	text-decoration: none;
 	text-align: center;
 	font-size: 12px;
 	transition: all ease 200ms;
 	cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+	.button {
+		line-height: 24px;
+	}
 }
 
 .button--primary {

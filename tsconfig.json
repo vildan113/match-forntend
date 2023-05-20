@@ -23,7 +23,8 @@
 			"components/*": ["src/components/*"],
 			"hooks/*": ["src/hooks/*"],
 			"assets/*": ["src/assets/*"]
-		}
+		},
+		"plugins": [{ "name": "typescript-plugin-css-modules" }]
 	},
 	"include": ["src"],
 	"references": [
