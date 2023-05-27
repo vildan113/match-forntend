@@ -8,15 +8,16 @@ interface IBaseProps {
 }
 
 type ButtonProps = IBaseProps &
-	ComponentProps<"button"> & { htmlType?: "submit" | "reset" | "button" }
+	Omit<ComponentProps<"button">, "type"> & {
+		htmlType?: "submit" | "reset" | "button"
+		href?: never
+	}
 
-type AnchorProps = IBaseProps &
-	ComponentProps<FC<Omit<LinkProps, "to">>> & { href: string; htmlType?: never }
+type AnchorProps = IBaseProps & Omit<LinkProps, "to"> & { href: string; htmlType?: never }
 
 const Component: FC<ButtonProps | AnchorProps> = ({
 	type = "default",
 	className,
-	htmlType,
 	children,
 	...rest
 }) => {
@@ -25,7 +26,7 @@ const Component: FC<ButtonProps | AnchorProps> = ({
 		children
 	}
 
-	if ("href" in rest)
+	if (rest.href !== undefined)
 		return (
 			<Link
 				{...rest}
@@ -38,7 +39,7 @@ const Component: FC<ButtonProps | AnchorProps> = ({
 		<button
 			{...rest}
 			{...sharedProps}
-			type={htmlType}
+			type={rest.htmlType}
 		/>
 	)
 }
