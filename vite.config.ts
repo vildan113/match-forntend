@@ -21,7 +21,8 @@ export default defineConfig({
 			components: "/src/components",
 			hooks: "/src/hooks",
 			assets: "/src/assets",
-			store: "/src/store"
+			store: "/src/store",
+			config: "/src/config"
 		}
 	},
 	css: {
