@@ -20,7 +20,8 @@ export default defineConfig({
 			pages: "/src/pages",
 			components: "/src/components",
 			hooks: "/src/hooks",
-			assets: "/src/assets"
+			assets: "/src/assets",
+			store: "/src/store"
 		}
 	},
 	css: {
