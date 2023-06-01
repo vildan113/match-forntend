@@ -73,14 +73,95 @@
 	}
 }
 
+/* Маленький экран */
+
+@media screen and (max-width: 479px) {
+	.market {
+		height: 100%;
+		gap: unset;
+	}
+
+	.market--wins > :nth-child(even),
+	.market--winsX > :nth-child(even),
+	.market--totals > :not(:nth-child(even)) {
+		background-color: unset;
+	}
+}
+
 /* Селект форы */
 
 .handicaps-select {
+	min-width: 14px;
+	width: 14px;
+	display: flex;
+	align-items: center;
+}
+
+.handicaps-select ul {
+	width: 100px;
+}
+
+.handicaps-select button {
+	padding: 0;
+	background-color: var(--white-color);
+	border: 1px solid transparent;
+	height: 20px;
+	justify-content: center;
+	color: #24668c;
+	opacity: 0.5;
+}
+
+.handicaps-select button:hover {
+	background-color: unset;
+	opacity: 1;
+	border: 1px solid #24668c;
+}
+
+.handicaps-select button > svg:first-child {
+	height: 10px;
+	width: 8px;
+}
+
+.handicaps-select button > svg:not(:first-child) {
+	display: none;
 }
 
 /* Селект тотала */
 
 .totals-select {
+	min-width: 40px;
+	display: flex;
+	align-items: center;
+}
+
+.totals-select ul {
+	width: 100px;
+}
+
+.totals-select button {
+	padding: 0;
+	background-color: var(--white-color);
+	border: 1px solid transparent;
+	height: 20px;
+	justify-content: end;
+	color: #24668c;
+	opacity: 0.5;
+}
+
+.totals-select button:hover {
+	background-color: unset;
+	opacity: 1;
+	border: 1px solid #24668c;
+}
+
+.totals-select button > div {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.totals-select button > svg {
+	display: none;
 }
 
 /* Значение коэффициента */
@@ -115,8 +196,32 @@
 	justify-content: space-between;
 }
 
+.factor-value--composite span:first-child {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	font-weight: 500;
+	font-size: 11px;
+}
+
+.factor-value--composite span:last-child {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+
 /* Компактный режим */
 
 .market--compact .factor-value {
 	height: 20px;
+}
+
+/* Маленький экран */
+
+@media screen and (max-width: 479px) {
+	.market .factor-value {
+		height: 100%;
+		border-radius: 0;
+		border: none;
+	}
 }

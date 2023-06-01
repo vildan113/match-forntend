@@ -28,6 +28,7 @@ const TotalMarket: FC<ITotalMarketProps> = ({ totals, className, children, ...re
 	if (isEmptyArray(totals)) {
 		return (
 			<div {...sharedProps}>
+				<TotalSelect style={{ visibility: "hidden" }} />
 				<FactorValue />
 				<FactorValue />
 			</div>
@@ -42,6 +43,7 @@ const TotalMarket: FC<ITotalMarketProps> = ({ totals, className, children, ...re
 		<div {...sharedProps}>
 			<TotalSelect
 				value={selected}
+				label={totals[selected].type}
 				options={totals.map((total, i) => ({
 					value: i,
 					label: total.over?.v
@@ -59,7 +61,12 @@ const TotalSelect: FC<React.ComponentProps<typeof Select<number>>> = props => {
 		<Select
 			{...props}
 			className={styles["totals-select"]}
-			label={<UpDownIcon />}
+			label={
+				<div>
+					<span>{props.label}</span>
+					<UpDownIcon />
+				</div>
+			}
 		/>
 	)
 }

@@ -36,6 +36,7 @@ const HandicapMarket: FC<IHandicapMarketProps> = ({
 		return (
 			<div {...sharedProps}>
 				<FactorValue />
+				<HandicapSelect style={{ visibility: "hidden" }} />
 				<FactorValue />
 			</div>
 		)

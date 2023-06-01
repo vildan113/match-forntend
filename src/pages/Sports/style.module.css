@@ -28,6 +28,6 @@
 
 @media screen and (max-width: 767px) {
 	.sport-page {
-		grid-template-columns: unset;
+		grid-template-columns: 100%;
 	}
 }

@@ -59,18 +59,16 @@ const Event: FC<IEventProps> = ({
 			<FavoriteIcon className={styles["sport-table-event__favorite-icon"]} />
 			<div className={styles["sport-table-event__main"]}>
 				<Link
-					to="/"
+					to="#"
 					className={styles["sport-table-event__main-name"]}
 				>
-					<p>
-						<span className={styles["sport-table-event__name-team1"]}>
-							{team1 || team1_rus}
-						</span>
-						<span> — </span>
-						<span className={styles["sport-table-event__name-team2"]}>
-							{team2 || team2_rus}
-						</span>
-					</p>
+					<span className={styles["sport-table-event__name-team1"]}>
+						{team1 || team1_rus}
+					</span>
+					<span> — </span>
+					<span className={styles["sport-table-event__name-team2"]}>
+						{team2 || team2_rus}
+					</span>
 				</Link>
 				{isLive && (
 					<div className={styles["sport-table-event__main-time"]}>

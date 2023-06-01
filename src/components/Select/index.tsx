@@ -110,12 +110,10 @@ function Select<T extends Value>({
 				className={cn(styles["select__button"])}
 				onClick={handleButtonClick}
 			>
-				<span>
-					{label ||
-						options.find(o => o.value === currentValue)?.label ||
-						currentValue ||
-						placeholder}
-				</span>
+				{label ||
+					options.find(o => o.value === currentValue)?.label ||
+					currentValue ||
+					placeholder}
 				<DownIcon className={styles["select__down-icon"]} />
 			</Button>
 			{isOpen && (
