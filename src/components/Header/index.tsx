@@ -29,7 +29,7 @@ const Header: FC = () => {
 					</div>
 				</div>
 				<menu className={cn(styles["header__menu"], "menu")}>
-					<li className="menu__item">
+					<li className={styles["menu__item"]}>
 						<NavLink
 							to="/sports"
 							className={({ isActive }) =>
@@ -41,7 +41,7 @@ const Header: FC = () => {
 							<span>Спорт</span>
 						</NavLink>
 					</li>
-					<li className="menu__item">
+					<li className={styles["menu__item"]}>
 						<NavLink
 							to="/live"
 							className={({ isActive }) =>
@@ -53,7 +53,7 @@ const Header: FC = () => {
 							<span>Live</span>
 						</NavLink>
 					</li>
-					<li className="menu__item">
+					<li className={cn(styles["menu__item"], styles["menu__item--disabled"])}>
 						<NavLink
 							to="/promo"
 							className={({ isActive }) =>
@@ -61,11 +61,12 @@ const Header: FC = () => {
 									[styles["menu__link--active"]]: isActive
 								})
 							}
+							onClick={event => event.preventDefault()}
 						>
 							<span>Акции</span>
 						</NavLink>
 					</li>
-					<li className="menu__item">
+					<li className={cn(styles["menu__item"], styles["menu__item--disabled"])}>
 						<NavLink
 							to="/statistic"
 							className={({ isActive }) =>
@@ -73,11 +74,12 @@ const Header: FC = () => {
 									[styles["menu__link--active"]]: isActive
 								})
 							}
+							onClick={event => event.preventDefault()}
 						>
 							<span>Статистика</span>
 						</NavLink>
 					</li>
-					<li className="menu__item">
+					<li className={cn(styles["menu__item"], styles["menu__item--disabled"])}>
 						<NavLink
 							to="/results"
 							className={({ isActive }) =>
@@ -85,6 +87,7 @@ const Header: FC = () => {
 									[styles["menu__link--active"]]: isActive
 								})
 							}
+							onClick={event => event.preventDefault()}
 						>
 							<span>Результаты</span>
 						</NavLink>

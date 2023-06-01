@@ -46,6 +46,16 @@
 	gap: 10px;
 }
 
+.menu__item {
+}
+
+.menu__item--disabled {
+}
+
+.menu__item--disabled .menu__link {
+	cursor: not-allowed;
+}
+
 .menu__link {
 	height: 100%;
 	display: flex;
@@ -54,7 +64,7 @@
 }
 
 .menu__link--active,
-.menu__link:hover {
+.menu__item .menu__link {
 	color: unset;
 	background-color: unset;
 }
@@ -63,7 +73,7 @@
 	transition: all 300ms ease;
 }
 
-.menu__link:hover span,
+.menu__item:hover:not(.menu__item--disabled) .menu__link span,
 .menu__link--active span {
 	transform: translateY(-5px);
 }
