@@ -1,0 +1,33 @@
+.sport-page {
+	display: grid;
+	grid-template-columns: 79% 21%;
+}
+
+.sport-page__main-layout {
+	margin: 10px 6px 0 6px;
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+}
+
+.sport-page__settings {
+	height: 32px;
+	display: flex;
+}
+
+.sport-page__sports-area {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	overflow: auto;
+	height: calc(100vh - 102px);
+	padding-right: 5px;
+}
+
+/* Мобилы */
+
+@media screen and (max-width: 767px) {
+	.sport-page {
+		grid-template-columns: unset;
+	}
+}

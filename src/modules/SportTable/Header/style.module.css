@@ -1,0 +1,144 @@
+.sport-table-header {
+	display: flex;
+	cursor: pointer;
+	gap: 5px;
+	background-color: #1e2129;
+	padding: 5px;
+	align-items: center;
+	color: var(--white-color);
+	box-sizing: border-box;
+	height: 36px;
+}
+
+.sport-table-header__sport-icon {
+	font-size: 14px;
+	min-width: 18px;
+}
+
+.sport-table-header__caption {
+	width: 100%;
+	font-weight: 800;
+	letter-spacing: 0.3px;
+	font-size: 17px;
+}
+
+.sport-table-header__down-icon {
+	transition: transform 0.2s;
+	transform: rotate(-180deg);
+	min-width: 25px;
+	opacity: 0.5;
+}
+
+.sport-table-header__down-icon:hover {
+	opacity: 1;
+}
+
+/* Стандартный режим */
+
+.sport-table-header--default {
+}
+
+/* Компактный режим */
+
+.sport-table-header--compact {
+	height: 30px;
+}
+
+/* Свернуто */
+
+.sport-table-header--collapsed {
+	background-color: #88909a;
+}
+
+.sport-table-header--collapsed:hover {
+	background-color: #1e2129;
+}
+
+.sport-table-header--collapsed .sport-table-header__markets {
+	display: none;
+}
+
+.sport-table-header--collapsed .sport-table-header__down-icon {
+	transform: rotate(0);
+}
+
+/* Селекты */
+
+.sport-table-header__markets-selector {
+	display: flex;
+	gap: 5px;
+}
+
+.sport-table-header__select > button {
+	background-color: unset;
+	text-transform: uppercase;
+	font-size: 10px;
+	letter-spacing: 0.5px;
+	justify-content: center;
+	font-weight: 600;
+}
+
+.sport-table-header__select--wins {
+	width: var(--wins-market-width);
+}
+
+.sport-table-header__select--winsX {
+	width: var(--winsX-market-width);
+}
+
+.sport-table-header__select--handicaps {
+	width: var(--handicaps-market-width);
+}
+
+.sport-table-header__select--totals {
+	width: var(--totals-market-width);
+}
+
+.sport-table-header__select > ul {
+	text-transform: uppercase;
+	font-size: 10px;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+}
+
+/* Стандартный режим */
+
+.sport-table-header__markets-selector--default {
+}
+
+/* Компактный режим */
+
+.sport-table-header__markets-selector--compact {
+}
+
+.sport-table-header__markets-selector--compact .sport-table-header__select--wins {
+	width: var(--wins-market-width-cp);
+}
+
+.sport-table-header__markets-selector--compact .sport-table-header__select--winsX {
+	width: var(--winsX-market-width-cp);
+}
+
+.sport-table-header__markets-selector--compact .sport-table-header__select--handicaps {
+	width: var(--handicaps-market-width-cp);
+}
+
+.sport-table-header__markets-selector--compact .sport-table-header__select--totals {
+	width: var(--totals-market-width-cp);
+}
+
+/* Большой экран */
+
+@media screen and (max-width: 1280px) {
+	.sport-table-header__select:first-child {
+		display: none;
+	}
+}
+
+/* Средний экран */
+
+@media screen and (max-width: 1024px) {
+	.sport-table-header__select:not(:last-child) {
+		display: none;
+	}
+}

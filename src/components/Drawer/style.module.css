@@ -16,7 +16,7 @@
 }
 
 .drawer__mask {
-	z-index: 6;
+	z-index: var(--z-index-drawer-mask);
 	width: 100%;
 	opacity: 0;
 	visibility: hidden;
@@ -24,7 +24,7 @@
 }
 
 .drawer__wrap {
-	z-index: 7;
+	z-index: var(--z-index-drawer);
 }
 
 .drawer__wrap--left {

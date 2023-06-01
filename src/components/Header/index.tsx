@@ -2,7 +2,7 @@ import { ReactComponent as BurgerIcon } from "assets/icons/burger-icon.svg"
 import Logo from "assets/images/Match.svg"
 import cn from "classnames"
 import { FC, useState } from "react"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import Button from "../Button"
 import SideBar from "../SideBar"
 import styles from "./style.module.css"
@@ -23,51 +23,71 @@ const Header: FC = () => {
 						onClick={openSidebar}
 					/>
 					<div className={styles["header__logo"]}>
-						<Link to="/home">
+						<NavLink to="/home">
 							<img src={Logo} />
-						</Link>
+						</NavLink>
 					</div>
 				</div>
 				<menu className={cn(styles["header__menu"], "menu")}>
 					<li className="menu__item">
-						<Link
-							to="/line"
-							className={styles["menu__link"]}
+						<NavLink
+							to="/sports"
+							className={({ isActive }) =>
+								cn(styles["menu__link"], {
+									[styles["menu__link--active"]]: isActive
+								})
+							}
 						>
 							<span>Спорт</span>
-						</Link>
+						</NavLink>
 					</li>
 					<li className="menu__item">
-						<Link
+						<NavLink
 							to="/live"
-							className={styles["menu__link"]}
+							className={({ isActive }) =>
+								cn(styles["menu__link"], {
+									[styles["menu__link--active"]]: isActive
+								})
+							}
 						>
 							<span>Live</span>
-						</Link>
+						</NavLink>
 					</li>
 					<li className="menu__item">
-						<Link
-							to="/"
-							className={styles["menu__link"]}
+						<NavLink
+							to="/promo"
+							className={({ isActive }) =>
+								cn(styles["menu__link"], {
+									[styles["menu__link--active"]]: isActive
+								})
+							}
 						>
 							<span>Акции</span>
-						</Link>
+						</NavLink>
 					</li>
 					<li className="menu__item">
-						<Link
-							to="/"
-							className={styles["menu__link"]}
+						<NavLink
+							to="/statistic"
+							className={({ isActive }) =>
+								cn(styles["menu__link"], {
+									[styles["menu__link--active"]]: isActive
+								})
+							}
 						>
 							<span>Статистика</span>
-						</Link>
+						</NavLink>
 					</li>
 					<li className="menu__item">
-						<Link
-							to="/"
-							className={styles["menu__link"]}
+						<NavLink
+							to="/results"
+							className={({ isActive }) =>
+								cn(styles["menu__link"], {
+									[styles["menu__link--active"]]: isActive
+								})
+							}
 						>
 							<span>Результаты</span>
-						</Link>
+						</NavLink>
 					</li>
 				</menu>
 				<div className={styles["header__right"]}>

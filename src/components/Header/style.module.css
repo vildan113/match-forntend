@@ -1,5 +1,5 @@
 .header {
-	background: var(--body-color);
+	background: var(--dark-color);
 }
 
 .header__container {
@@ -53,6 +53,7 @@
 	align-items: center;
 }
 
+.menu__link--active,
 .menu__link:hover {
 	color: unset;
 	background-color: unset;
@@ -62,7 +63,8 @@
 	transition: all 300ms ease;
 }
 
-.menu__link:hover span {
+.menu__link:hover span,
+.menu__link--active span {
 	transform: translateY(-5px);
 }
 

@@ -4,7 +4,7 @@
 	min-height: calc(100vh - var(--header_height));
 	padding: 80px 30px;
 	align-items: center;
-	background-color: var(--body-color);
+	background-color: var(--dark-color);
 }
 
 .homepage__container {

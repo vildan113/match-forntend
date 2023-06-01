@@ -1,0 +1,11 @@
+.logo-loader {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo-loader svg {
+	width: 220px;
+	height: 33px;
+}

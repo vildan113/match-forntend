@@ -2,8 +2,8 @@ import bannerImage from "assets/images/banner-bg.png"
 import coin1Image from "assets/images/coin-1.webp"
 import coin2Image from "assets/images/coin-2.webp"
 import cn from "classnames"
+import { Button } from "components/index"
 import { FC } from "react"
-import Button from "src/components/Button"
 import styles from "./style.module.css"
 
 const Home: FC = () => {
@@ -48,7 +48,7 @@ const Home: FC = () => {
 							felis id interdum.
 						</p>
 						<Button
-							href="/live"
+							href="/sports"
 							type="primary"
 							className={styles["homepage__button"]}
 						>

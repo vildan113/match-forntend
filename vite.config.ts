@@ -1,4 +1,5 @@
 import react from "@vitejs/plugin-react"
+import autoprefixer from "autoprefixer"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
@@ -22,12 +23,17 @@ export default defineConfig({
 			hooks: "/src/hooks",
 			assets: "/src/assets",
 			store: "/src/store",
-			config: "/src/config"
+			config: "/src/config",
+			utils: "/src/utils",
+			modules: "/src/modules"
 		}
 	},
 	css: {
 		modules: {
 			generateScopedName: "[local]___[hash:base26:4]"
+		},
+		postcss: {
+			plugins: [autoprefixer()]
 		}
 	}
 })

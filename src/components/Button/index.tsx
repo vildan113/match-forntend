@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { ComponentProps, FC } from "react"
+import React, { ComponentProps, FC } from "react"
 import { Link, LinkProps } from "react-router-dom"
 import styles from "./style.module.css"
 
@@ -15,7 +15,7 @@ type ButtonProps = IBaseProps &
 
 type AnchorProps = IBaseProps & Omit<LinkProps, "to"> & { href: string; htmlType?: never }
 
-const Component: FC<ButtonProps | AnchorProps> = ({
+const Button: FC<ButtonProps | AnchorProps> & { Group: any } = ({
 	type = "default",
 	className,
 	children,
@@ -44,4 +44,16 @@ const Component: FC<ButtonProps | AnchorProps> = ({
 	)
 }
 
-export default Component
+const Group: FC<React.ComponentProps<"div">> = ({ className, children, ...rest }) => {
+	return (
+		<div
+			className={cn(className, styles["button-group"])}
+			{...rest}
+		>
+			{children}
+		</div>
+	)
+}
+
+Button.Group = Group
+export default Button

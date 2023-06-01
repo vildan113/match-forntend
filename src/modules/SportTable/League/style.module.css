@@ -1,0 +1,96 @@
+.sport-table-league {
+}
+
+.sport-table-league__header {
+	display: flex;
+	padding: 0 5px;
+	gap: 5px;
+	height: 30px;
+	font-size: 11px;
+	align-items: center;
+	background-color: #eff5eb;
+	cursor: pointer;
+	position: sticky;
+	top: 36px;
+	color: #192a3e;
+	z-index: var(--z-index-sport-league-header);
+}
+
+.sport-table-league__header:hover {
+	background-color: #e3e9df;
+}
+
+.sport-table-league__header-country-icon {
+	min-width: 18px;
+}
+
+.sport-table-league__header-caption {
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	font-size: 10px;
+	font-weight: 600;
+}
+
+.sport-table-league__header-markets {
+	display: flex;
+	gap: 5px;
+	text-align: center;
+}
+
+.sport-table-league__down-icon {
+	font-size: 16px;
+	transition: transform 0.2s;
+	transform: rotate(-180deg);
+	min-width: 25px;
+	color: #87919b;
+	opacity: 0.5;
+}
+
+.sport-table-league__down-icon:hover {
+	opacity: 1;
+}
+
+.sport-table-league__content {
+}
+
+/* Стандартный режим */
+
+.sport-table-league--default {
+}
+
+/* Компактный режим */
+
+.sport-table-league--compact {
+}
+
+.sport-table-league--compact .sport-table-league__header {
+	height: 20px;
+}
+
+.sport-table-league--compact .sport-table-league__header {
+	top: 30px;
+}
+
+/* Свернуто */
+
+.sport-table-league--collapsed {
+}
+
+.sport-table-league--collapsed .sport-table-league__header {
+	background-color: #f1f4f8;
+}
+
+.sport-table-league--collapsed .sport-table-league__header:hover {
+	background-color: #dae0d7;
+}
+
+.sport-table-league--collapsed .sport-table-league__header-markets {
+	display: none;
+}
+
+.sport-table-league--collapsed .sport-table-league__down-icon {
+	transform: rotate(0);
+}

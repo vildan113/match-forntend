@@ -2,14 +2,53 @@
 
 :root {
 	--body-font: "Nunito Sans", sans-serif;
-	--body-color: #0d0e11;
-	/* --body-color: #120f54; */
+	--dark-color: #0d0e11;
+	--body-color: #f6f6f6;
 	--white-color: #ffffff;
 	--header_height: 50px;
+
+	--wins-market-width: 158px;
+	--winsX-market-width: 158px;
+	--handicaps-market-width: 188px;
+	--totals-market-width: 158px;
+
+	--wins-market-width-cp: 128px;
+	--winsX-market-width-cp: 128px;
+	--handicaps-market-width-cp: 164px;
+	--totals-market-width-cp: 133px;
+
+	--z-index-sport-league-header: 2;
+	--z-index-sport-table-header: 3;
+	--z-index-select-dropdown: 5;
+	--z-index-drawer-mask: 6;
+	--z-index-drawer: 7;
+
+	--scrollbar-background: transparent;
+	--thumb-background: #ccd2d4;
+}
+
+*::-webkit-scrollbar {
+	width: 6px;
+}
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--thumb-background) var(--scrollbar-background);
+}
+
+*::-webkit-scrollbar-track {
+	background: var(--scrollbar-background);
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--thumb-background);
+	border-radius: 6px;
+	border: 3px solid var(--scrollbar-background);
 }
 
 body {
 	font-family: var(--body-font);
+	background-color: var(--body-color);
 }
 
 img {

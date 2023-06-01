@@ -1,0 +1,16 @@
+.sport-table {
+	background-color: var(--white-color);
+	clip-path: inset(0 0 0 0 round 4px);
+}
+
+.sport-table__header {
+	position: sticky;
+	top: 0;
+	z-index: var(--z-index-sport-table-header);
+	border-radius: 4px 4px 0 0;
+}
+
+.sport-table__content {
+	border: 1px solid #e2e3e9;
+	border-top: none;
+}

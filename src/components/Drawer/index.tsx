@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { FC, cloneElement } from "react"
+import React, { FC, cloneElement } from "react"
 import { createPortal } from "react-dom"
 import styles from "./style.module.css"
 
@@ -7,7 +7,7 @@ interface IDrawerProps extends React.ComponentProps<"div"> {
 	isVisible: boolean
 	placement?: "left" | "right" | "top" | "bottom"
 	onClose: () => void
-	children: JSX.Element
+	children: React.ReactElement
 }
 
 const Drawer: FC<IDrawerProps> = ({
@@ -30,7 +30,7 @@ const Drawer: FC<IDrawerProps> = ({
 			<div
 				className={styles["drawer__mask"]}
 				onClick={onClose}
-			></div>
+			/>
 			{cloneElement(children, {
 				className: cn(
 					children.props.className,
