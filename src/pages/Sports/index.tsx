@@ -13,6 +13,9 @@ interface ISportsProps {
 
 const Sports: FC<ISportsProps> = ({ live }) => {
 	const [mode, setMode] = useState<"default" | "compact">("default")
+	const [settingsDirection, setSettingsDirection] = useState<"horizontal" | "vertical">(
+		"vertical"
+	)
 
 	useEffect(() => {
 		store.football.get({ live })
@@ -20,7 +23,12 @@ const Sports: FC<ISportsProps> = ({ live }) => {
 
 	return (
 		<div className={cn(styles["sport-page"], "container")}>
-			<div className={styles["sport-page__main-layout"]}>
+			<div
+				className={cn(styles["sport-page__main-layout"], {
+					[styles["sport-page__main-layout--horizontal"]]:
+						settingsDirection === "horizontal"
+				})}
+			>
 				<div className={styles["sport-page__settings"]}>
 					<Button
 						onClick={() => setMode("default")}
@@ -33,6 +41,15 @@ const Sports: FC<ISportsProps> = ({ live }) => {
 						type={mode === "compact" ? "primary" : "default"}
 					>
 						Compact
+					</Button>
+					<Button
+						onClick={() =>
+							setSettingsDirection(prev =>
+								prev === "vertical" ? "horizontal" : "vertical"
+							)
+						}
+					>
+						Направление меню
 					</Button>
 				</div>
 				<div className={styles["sport-page__sports-area"]}>
@@ -64,7 +81,10 @@ const Sports: FC<ISportsProps> = ({ live }) => {
 									{ value: "totals", label: "Тоталы" }
 								]}
 							/>
-							<div dangerouslySetInnerHTML={{ __html: f }}></div>
+							<div
+								className={styles["sport-page__about"]}
+								dangerouslySetInnerHTML={{ __html: f }}
+							></div>
 						</>
 					)}
 				</div>

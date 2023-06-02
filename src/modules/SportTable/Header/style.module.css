@@ -20,6 +20,9 @@
 	font-weight: 800;
 	letter-spacing: 0.3px;
 	font-size: 17px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .sport-table-header__down-icon {

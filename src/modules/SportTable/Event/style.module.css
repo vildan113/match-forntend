@@ -66,6 +66,9 @@
 	gap: 5px;
 	grid-column: 3;
 	grid-row: 1 / 3;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .sport-table-event__clock-icon {
@@ -75,6 +78,9 @@
 
 .sport-table-event__time {
 	font-weight: 600;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .sport-table-event__main-score {
@@ -93,6 +99,9 @@
 	grid-column: 4;
 	grid-row: 1 / 3;
 	color: #192a3ecc;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .sport-table-event__markets {
