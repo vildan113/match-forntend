@@ -1,7 +1,7 @@
 import { ReactComponent as UpDownIcon } from "assets/icons/up-down-icon.svg"
 import cn from "classnames"
 import React, { FC, useContext, useState } from "react"
-import { Select } from "src/components"
+import { Select as HandicapSelect } from "src/components"
 import { isEmptyArray } from "src/utils"
 import { SportTableContext } from "../.."
 import { HandicapBet } from "../../types"
@@ -38,7 +38,10 @@ const HandicapMarket: FC<IHandicapMarketProps> = ({
 		return (
 			<div {...sharedProps}>
 				<FactorValue />
-				<HandicapSelect style={{ visibility: "hidden" }} />
+				<HandicapSelect
+					className={styles["handicaps-select"]}
+					style={{ visibility: "hidden" }}
+				/>
 				<FactorValue />
 			</div>
 		)
@@ -48,6 +51,8 @@ const HandicapMarket: FC<IHandicapMarketProps> = ({
 
 	const [selected, setSelected] = useState<number>(averageLength)
 
+	console.log()
+
 	return (
 		<div {...sharedProps}>
 			<FactorValue
@@ -56,10 +61,29 @@ const HandicapMarket: FC<IHandicapMarketProps> = ({
 				{handicaps1[selected]}
 			</FactorValue>
 			<HandicapSelect
+				className={styles["handicaps-select"]}
 				value={selected}
-				options={handicaps1.map((handicap, i) => ({
+				label={<UpDownIcon />}
+				options={handicaps1.map((_handicap, i) => ({
 					value: i,
-					label: handicap.v
+					label: (
+						<>
+							<FactorValue
+								onClick={(value: number, type: number) =>
+									onClick(value, "handicap1", type)
+								}
+							>
+								{handicaps1[i]}
+							</FactorValue>
+							<FactorValue
+								onClick={(value: number, type: number) =>
+									onClick(value, "handicap2", type)
+								}
+							>
+								{handicaps2[i]}
+							</FactorValue>
+						</>
+					)
 				}))}
 				onChange={setSelected}
 			/>
@@ -69,16 +93,6 @@ const HandicapMarket: FC<IHandicapMarketProps> = ({
 				{handicaps2[selected]}
 			</FactorValue>
 		</div>
-	)
-}
-
-const HandicapSelect: FC<React.ComponentProps<typeof Select<number>>> = props => {
-	return (
-		<Select
-			{...props}
-			className={styles["handicaps-select"]}
-			label={<UpDownIcon />}
-		/>
 	)
 }
 

@@ -18,7 +18,8 @@ class SettingsStore implements ISettings {
 	}
 
 	update(settings: Partial<ISettings>) {
-		this.direction = settings.direction || this.direction
+		this.direction =
+			window.innerWidth < 975 ? "horizontal" : settings.direction || this.direction
 		this.mode = settings.mode || this.mode
 		this.markets = settings.markets || this.markets
 	}

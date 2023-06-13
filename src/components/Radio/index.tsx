@@ -8,7 +8,7 @@ interface IRadioProps extends ComponentProps<"input"> {
 interface IRadioGroupProps<T> extends Omit<ComponentProps<"div">, "onChange"> {
 	value?: T
 	onChange?: (value: T) => void
-	children: React.ReactElement[]
+	children: React.ReactElement | React.ReactElement[]
 }
 
 const Radio: React.FC<IRadioProps> & {

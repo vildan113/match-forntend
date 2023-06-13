@@ -32,13 +32,13 @@ const Settings: FC = () => {
 					value={store.settings.direction}
 					onChange={onChangeDirection}
 				>
-					<Radio value="horizontal">
-						<span>Сверху</span>
-						<img src={TopNavigationImg} />
-					</Radio>
 					<Radio value="vertical">
 						<span>Слева</span>
 						<img src={LeftNavigationImg} />
+					</Radio>
+					<Radio value="horizontal">
+						<span>Сверху</span>
+						<img src={TopNavigationImg} />
 					</Radio>
 				</Radio.Group>
 			</div>

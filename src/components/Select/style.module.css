@@ -82,3 +82,9 @@
 	white-space: nowrap;
 	overflow: hidden;
 }
+
+@media screen and (max-width: 767px) {
+	.select__button {
+		line-height: 30px;
+	}
+}

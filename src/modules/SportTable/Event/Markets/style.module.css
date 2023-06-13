@@ -98,7 +98,33 @@
 }
 
 .handicaps-select ul {
-	width: 100px;
+	min-width: 200px;
+	border-radius: 4px;
+	background-color: var(--white-color);
+	padding: 5px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.handicaps-select > ul > li {
+	padding: 3px;
+	margin: 3px;
+	border-radius: 4px;
+	border: 1px solid transparent;
+}
+
+.handicaps-select > ul > li[class*="selected"] {
+	background-color: #fafafa;
+	border: 1px solid #558eae80;
+}
+
+.handicaps-select > ul > li:hover {
+	background-color: #fafafa;
+	border: 1px solid #558eae;
+}
+
+.handicaps-select > ul > li > span {
+	display: flex;
+	gap: 20px;
 }
 
 .handicaps-select button {
@@ -132,6 +158,40 @@
 }
 
 .totals-select ul {
+	min-width: 150px;
+	border-radius: 4px;
+	background-color: var(--white-color);
+	padding: 5px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.totals-select > ul > li {
+	padding: 3px;
+	margin: 3px;
+	border-radius: 4px;
+	border: 1px solid transparent;
+}
+
+.totals-select > ul > li[class*="selected"] {
+	background-color: #fafafa;
+	border: 1px solid #558eae80;
+}
+
+.totals-select > ul > li:hover {
+	background-color: #fafafa;
+	border: 1px solid #558eae;
+}
+
+.totals-select > ul > li > span {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.totals-select > ul > li > span > div {
+	display: flex;
+	gap: 10px;
 	width: 100px;
 }
 

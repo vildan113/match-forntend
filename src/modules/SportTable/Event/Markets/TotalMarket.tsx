@@ -1,7 +1,7 @@
 import { ReactComponent as UpDownIcon } from "assets/icons/up-down-icon.svg"
 import cn from "classnames"
 import React, { FC, useContext, useState } from "react"
-import { Select } from "src/components"
+import { Select as TotalSelect } from "src/components"
 import { isEmptyArray } from "src/utils"
 import { SportTableContext } from "../.."
 import { TotalBet } from "../../types"
@@ -35,7 +35,10 @@ const TotalMarket: FC<ITotalMarketProps> = ({
 	if (isEmptyArray(totals)) {
 		return (
 			<div {...sharedProps}>
-				<TotalSelect style={{ visibility: "hidden" }} />
+				<TotalSelect
+					className={styles["totals-select"]}
+					style={{ visibility: "hidden" }}
+				/>
 				<FactorValue />
 				<FactorValue />
 			</div>
@@ -49,11 +52,33 @@ const TotalMarket: FC<ITotalMarketProps> = ({
 	return (
 		<div {...sharedProps}>
 			<TotalSelect
+				className={styles["totals-select"]}
 				value={selected}
-				label={totals[selected].type}
+				label={
+					<>
+						<span>{totals[selected].type}</span>
+						<UpDownIcon />
+					</>
+				}
 				options={totals.map((total, i) => ({
 					value: i,
-					label: total.over?.v
+					label: (
+						<>
+							<span>{total.type}</span>
+							<div>
+								<FactorValue
+									onClick={(value: number) => onClick(value, "over", total.type)}
+								>
+									{total.under}
+								</FactorValue>
+								<FactorValue
+									onClick={(value: number) => onClick(value, "under", total.type)}
+								>
+									{total.over}
+								</FactorValue>
+							</div>
+						</>
+					)
 				}))}
 				onChange={setSelected}
 			/>
@@ -66,21 +91,6 @@ const TotalMarket: FC<ITotalMarketProps> = ({
 				{totals[selected].over}
 			</FactorValue>
 		</div>
-	)
-}
-
-const TotalSelect: FC<React.ComponentProps<typeof Select<number>>> = props => {
-	return (
-		<Select
-			{...props}
-			className={styles["totals-select"]}
-			label={
-				<>
-					<span>{props.label}</span>
-					<UpDownIcon />
-				</>
-			}
-		/>
 	)
 }
 
