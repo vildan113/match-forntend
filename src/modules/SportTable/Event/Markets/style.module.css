@@ -189,6 +189,11 @@
 	gap: 10px;
 }
 
+.totals-select > ul > li > span > span {
+	width: 25px;
+	text-align: center;
+}
+
 .totals-select > ul > li > span > div {
 	display: flex;
 	gap: 10px;
@@ -235,6 +240,16 @@
 	box-sizing: border-box;
 }
 
+.factor-value--green {
+	animation-name: increase;
+	animation-duration: 3s;
+}
+
+.factor-value--red {
+	animation-name: decrease;
+	animation-duration: 3s;
+}
+
 .factor-value:hover:not(.factor-value--empty) {
 	background-color: #dfe4ea;
 	border-color: #1c5fb014;
@@ -276,5 +291,35 @@
 		height: 100%;
 		border-radius: 0;
 		border: none;
+	}
+}
+
+@keyframes increase {
+	0% {
+		background-color: #ffffff00;
+	}
+	10% {
+		background-color: #cfdfa8e6;
+	}
+	90% {
+		background-color: #cfdfa8e6;
+	}
+	100% {
+		background-color: #ffffff00;
+	}
+}
+
+@keyframes decrease {
+	0% {
+		background-color: #ffffff00;
+	}
+	10% {
+		background-color: #b43d3766;
+	}
+	90% {
+		background-color: #b43d3766;
+	}
+	100% {
+		background-color: #ffffff00;
 	}
 }

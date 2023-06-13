@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { FC } from "react"
+import { FC, useEffect, useState } from "react"
 import styles from "./style.module.css"
 
 interface Bet {
@@ -27,7 +27,30 @@ const FactorValue: FC<IFactorValueBProps | IFactorValueHBProps> = ({
 	children,
 	...rest
 }) => {
-	const classNames = [rest.className, styles["factor-value"]]
+	const [isHighlighted, setIsHighlighted] = useState(false)
+	const [shouldHighlight, setShouldHighlight] = useState(false)
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			const shouldHighlight = Math.random() < 0.5
+			setShouldHighlight(shouldHighlight)
+
+			if (shouldHighlight) {
+				const isHighlighted = Math.random() < 0.5
+				setIsHighlighted(isHighlighted)
+			}
+		}, 1000)
+
+		return () => clearInterval(interval)
+	}, [])
+
+	const classNames = [
+		rest.className,
+		styles["factor-value"],
+		children &&
+			shouldHighlight &&
+			(isHighlighted ? styles["factor-value--green"] : styles["factor-value--red"])
+	]
 
 	if (!children)
 		return (
