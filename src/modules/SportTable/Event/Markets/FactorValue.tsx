@@ -39,7 +39,7 @@ const FactorValue: FC<IFactorValueBProps | IFactorValueHBProps> = ({
 				const isHighlighted = Math.random() < 0.5
 				setIsHighlighted(isHighlighted)
 			}
-		}, 1000)
+		}, 10000)
 
 		return () => clearInterval(interval)
 	}, [])
