@@ -4,19 +4,21 @@ import { makeAutoObservable } from "mobx"
 import moment from "moment"
 import { isEmptyArray } from "src/utils"
 
-export interface IEvent extends XBetFootballMatch {
+interface IEvent extends XBetFootballMatch {
 	minute: number
 	seconds: number
 	country: string
 }
 
-export interface ILeague extends XBetLeague {
-	events: IEvent[]
+interface ILeague extends XBetLeague {
 	country: string
 }
 
+type Data = ILeague & { events: IEvent[] }
+
 class FootballStore {
-	data: ILeague[] = []
+	data: Data[] = []
+	leagues: ILeague[] = []
 	isLoading = false
 	isEmpty = true
 	isSuccess = false
@@ -26,7 +28,7 @@ class FootballStore {
 		makeAutoObservable(this)
 	}
 
-	async get({ live }: { live?: boolean }) {
+	async get({ live, hours }: { live?: boolean; hours?: number }) {
 		this.isLoading = true
 		try {
 			const events = (await xBet.football.getLiveAll()) as IEvent[]
@@ -40,6 +42,8 @@ class FootballStore {
 				if (event.team1.includes("/")) return false
 				if (event.team2.includes("/")) return false
 
+				if (hours && moment(event.date_start) > moment().add(hours, "h")) return false
+
 				return true
 			})
 
@@ -47,7 +51,7 @@ class FootballStore {
 				return moment(a.date_start).diff(moment(b.date_start))
 			})
 
-			const data = sortedEvents.reduce<ILeague[]>((acc, match) => {
+			const data = sortedEvents.reduce<Data[]>((acc, match) => {
 				const league = acc.find(league => league.league_id === match.league.league_id)
 
 				if (league) {
@@ -64,6 +68,11 @@ class FootballStore {
 			}, [])
 
 			this.data = data
+			this.leagues = data.map(league => {
+				const { events, ...rest } = league
+				return rest
+			})
+
 			this.isSuccess = true
 			this.isEmpty = isEmptyArray(sortedEvents)
 		} catch (error) {

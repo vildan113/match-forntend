@@ -1,9 +1,9 @@
 import { ReactComponent as FootballIcon } from "assets/icons/football-icon.svg"
 import cn from "classnames"
-import { Button, Empty, LogoLoader } from "components/index"
+import { Empty, LogoLoader } from "components/index"
 import { observer } from "mobx-react-lite"
-import { SportTable } from "modules/index"
-import { FC, useEffect, useState } from "react"
+import { Panel, SportTable } from "modules/index"
+import { FC } from "react"
 import store from "store/index"
 import styles from "./style.module.css"
 
@@ -12,46 +12,20 @@ interface ISportsProps {
 }
 
 const Sports: FC<ISportsProps> = ({ live }) => {
-	const [mode, setMode] = useState<"default" | "compact">("default")
-	const [settingsDirection, setSettingsDirection] = useState<"horizontal" | "vertical">(
-		"vertical"
-	)
-
-	useEffect(() => {
-		store.football.get({ live })
-	}, [live])
+	const handleBet = console.log
 
 	return (
 		<div className={cn(styles["sport-page"], "container")}>
 			<div
 				className={cn(styles["sport-page__main-layout"], {
 					[styles["sport-page__main-layout--horizontal"]]:
-						settingsDirection === "horizontal"
+						store.settings.direction === "horizontal"
 				})}
 			>
-				<div className={styles["sport-page__settings"]}>
-					<Button
-						onClick={() => setMode("default")}
-						type={mode === "default" ? "primary" : "default"}
-					>
-						Default
-					</Button>
-					<Button
-						onClick={() => setMode("compact")}
-						type={mode === "compact" ? "primary" : "default"}
-					>
-						Compact
-					</Button>
-					<Button
-						onClick={() =>
-							setSettingsDirection(prev =>
-								prev === "vertical" ? "horizontal" : "vertical"
-							)
-						}
-					>
-						Направление меню
-					</Button>
-				</div>
+				<Panel
+					live={live}
+					className={styles["sport-page__panel"]}
+				/>
 				<div className={styles["sport-page__sports-area"]}>
 					{store.football.isLoading ? (
 						<LogoLoader />
@@ -60,7 +34,7 @@ const Sports: FC<ISportsProps> = ({ live }) => {
 					) : (
 						<>
 							<SportTable
-								mode={mode}
+								mode={store.settings.mode}
 								data={store.football.data}
 								sport={{ icon: <FootballIcon />, name: "Футбол" }}
 								markets={[
@@ -69,9 +43,11 @@ const Sports: FC<ISportsProps> = ({ live }) => {
 									{ value: "handicaps", label: "Форы" },
 									{ value: "totals", label: "Тоталы" }
 								]}
+								selectedMarkets={store.settings.markets}
+								onBet={handleBet}
 							/>
 							<SportTable
-								mode={mode}
+								mode={store.settings.mode}
 								data={store.football.data}
 								sport={{ icon: <FootballIcon />, name: "Футбол" }}
 								markets={[
@@ -80,6 +56,8 @@ const Sports: FC<ISportsProps> = ({ live }) => {
 									{ value: "handicaps", label: "Форы" },
 									{ value: "totals", label: "Тоталы" }
 								]}
+								selectedMarkets={store.settings.markets}
+								onBet={handleBet}
 							/>
 							<div
 								className={styles["sport-page__about"]}

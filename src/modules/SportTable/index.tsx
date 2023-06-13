@@ -1,50 +1,54 @@
 import cn from "classnames"
 import { FC, createContext, useEffect, useState } from "react"
-import { ILeague } from "store/football"
 import Header from "./Header"
 import League from "./League"
 import styles from "./style.module.css"
+import {
+	IBetData,
+	IEvent,
+	IHandicapBetData,
+	ILeague,
+	ISport,
+	ITotalBetData,
+	Markets
+} from "./types"
 
-export type Markets = "wins" | "winsX" | "handicaps" | "totals"
-
-interface ISportTableProps extends React.ComponentProps<"div"> {
-	mode: "default" | "compact"
-	sport: {
-		icon: React.ReactElement
-		name: string
-	}
-	data: ILeague[]
-	markets: { value: Markets; label: string }[]
-	selectedMarkets?: Markets[]
-}
-
-interface IState {
+export interface ISportTableState {
 	mode: "default" | "compact"
 	markets: { value: Markets; label: string }[]
 	selectedMarkets: Markets[]
+	onBet: (bet: IBetData | IHandicapBetData | ITotalBetData) => void
 }
 
-interface ISportTableContext extends IState {
-	setState: React.Dispatch<React.SetStateAction<IState>>
+export interface ISportTableContext extends ISportTableState {
+	setState: React.Dispatch<React.SetStateAction<ISportTableState>>
 }
+
+export type SportTableProps = React.ComponentProps<"div"> &
+	ISportTableState & {
+		sport: ISport
+		data: (ILeague & { events: IEvent[] })[]
+	}
 
 //@ts-ignore
 export const SportTableContext = createContext<ISportTableContext>()
 
-const SportTable: FC<ISportTableProps> = ({
+const SportTable: FC<SportTableProps> = ({
 	data,
 	mode,
 	sport,
 	markets,
 	selectedMarkets,
+	onBet,
 	className,
 	children,
 	...rest
 }) => {
-	const [state, setState] = useState<IState>({
+	const [state, setState] = useState<ISportTableState>({
 		mode,
 		markets,
-		selectedMarkets: selectedMarkets || markets.map(m => m.value)
+		selectedMarkets: selectedMarkets || markets.map(m => m.value),
+		onBet
 	})
 
 	const [isCollapse, setIsCollapse] = useState(false)
@@ -81,6 +85,7 @@ const SportTable: FC<ISportTableProps> = ({
 							<League
 								key={league.league_id}
 								data={league}
+								events={league.events}
 							/>
 						))}
 					</div>

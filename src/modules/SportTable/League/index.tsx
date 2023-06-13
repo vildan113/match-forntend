@@ -2,18 +2,20 @@ import { ReactComponent as DownIcon } from "assets/icons/chevron-down.svg"
 import cn from "classnames"
 import { CountryIcon } from "components/index"
 import { FC, useContext, useState } from "react"
-import { ILeague } from "store/football"
 import { SportTableContext } from ".."
 import Event from "../Event"
+import { IEvent, ILeague } from "../types"
 import Market from "./Market"
 import styles from "./style.module.css"
 
 interface ILeagueProps extends React.ComponentProps<"div"> {
 	data: ILeague
+	events: IEvent[]
 }
 
 const League: FC<ILeagueProps> = ({
-	data: { country, name, name_rus, events },
+	data: { country, name, name_rus },
+	events,
 	className,
 	...rest
 }) => {

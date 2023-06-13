@@ -1,9 +1,12 @@
 /**
- * Checks if the input is an empty array.
+ * Проверяет, являются ли входные данные пустым массивом.
  *
- * @param {unknown} param - the input to check if it's an empty array
- * @return {boolean} true if the input is an empty array, false otherwise
+ * @param param - Входные данные для проверки, являются ли они пустым массивом.
+ * @return `true` если входные данные представляют собой пустой массив,
+ * в противном случае `false`
  */
-export default (param: unknown): boolean => {
+const isEmptyArray = (param: unknown[]): boolean => {
 	return Array.isArray(param) && param.length === 0
 }
+
+export default isEmptyArray

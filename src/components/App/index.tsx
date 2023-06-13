@@ -7,7 +7,7 @@ import "moment/dist/locale/ru"
 import "normalize.css"
 import { Home, Sports } from "pages/index"
 import { FC } from "react"
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import store from "store/index"
 import "./style.css"
 
@@ -35,6 +35,19 @@ const App: FC = () => {
 				<Route
 					path="/live"
 					element={<Sports live={true} />}
+				/>
+				<Route
+					path="/"
+					element={
+						<Navigate
+							to="/home"
+							replace
+						/>
+					}
+				/>
+				<Route
+					path="*"
+					element={<div>404 Not Found</div>}
 				/>
 			</Routes>
 		</>

@@ -102,13 +102,13 @@
 }
 
 .handicaps-select button {
-	padding: 0;
-	background-color: var(--white-color);
+	padding: 2px;
+	background-color: unset;
 	border: 1px solid transparent;
 	height: 20px;
-	justify-content: center;
 	color: #24668c;
 	opacity: 0.5;
+	border-radius: 2px;
 }
 
 .handicaps-select button:hover {
@@ -117,19 +117,16 @@
 	border: 1px solid #24668c;
 }
 
-.handicaps-select button > svg:first-child {
+.handicaps-select button svg {
 	height: 10px;
 	width: 8px;
-}
-
-.handicaps-select button > svg:not(:first-child) {
-	display: none;
 }
 
 /* Селект тотала */
 
 .totals-select {
 	min-width: 40px;
+	width: 40px;
 	display: flex;
 	align-items: center;
 }
@@ -139,13 +136,14 @@
 }
 
 .totals-select button {
-	padding: 0;
-	background-color: var(--white-color);
+	padding: 2px;
+	background-color: unset;
 	border: 1px solid transparent;
 	height: 20px;
 	justify-content: end;
 	color: #24668c;
 	opacity: 0.5;
+	border-radius: 2px;
 }
 
 .totals-select button:hover {
@@ -154,14 +152,9 @@
 	border: 1px solid #24668c;
 }
 
-.totals-select button > div {
-	display: flex;
-	align-items: center;
-	gap: 5px;
-}
-
-.totals-select button > svg {
-	display: none;
+.totals-select button svg {
+	width: 8px;
+	height: 10px;
 }
 
 /* Значение коэффициента */

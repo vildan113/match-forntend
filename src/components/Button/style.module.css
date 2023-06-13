@@ -48,6 +48,10 @@
 	background-color: #1e1e1e;
 }
 
+.button--disabled {
+	cursor: not-allowed;
+}
+
 .button-group .button {
 	border-radius: 0;
 }

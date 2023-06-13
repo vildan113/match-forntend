@@ -51,14 +51,14 @@ function Select<T extends Value>({
 		onChange(value)
 	}
 
-	useOutSideClick(() => setIsOpen(false), dropdownRef)
+	useOutSideClick(() => setIsOpen(false), [dropdownRef])
 
 	useEffect(() => {
 		if (currentValue == null) setCurrentValue(defaultValue)
 	}, [])
 
 	useEffect(() => {
-		if (value) setCurrentValue(value)
+		setCurrentValue(value)
 	}, [value])
 
 	const options = useMemo(() => {
@@ -110,11 +110,16 @@ function Select<T extends Value>({
 				className={cn(styles["select__button"])}
 				onClick={handleButtonClick}
 			>
-				{label ||
-					options.find(o => o.value === currentValue)?.label ||
-					currentValue ||
-					placeholder}
-				<DownIcon className={styles["select__down-icon"]} />
+				{label || (
+					<>
+						<span className={styles["select__button-span"]}>
+							{options.find(o => o.value === currentValue)?.label ||
+								currentValue ||
+								placeholder}
+						</span>
+						<DownIcon className={styles["select__down-icon"]} />
+					</>
+				)}
 			</Button>
 			{isOpen && (
 				<ul

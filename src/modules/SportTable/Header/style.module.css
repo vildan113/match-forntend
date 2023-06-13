@@ -72,13 +72,32 @@
 	gap: 5px;
 }
 
+.sport-table-header__select {
+	height: 22px;
+}
+
 .sport-table-header__select > button {
-	background-color: unset;
+	background-color: transparent;
 	text-transform: uppercase;
 	font-size: 10px;
 	letter-spacing: 0.5px;
 	justify-content: center;
 	font-weight: 600;
+	color: var(--white-color);
+	border: none;
+}
+
+.sport-table-header__select > button span {
+	justify-content: center;
+}
+
+.sport-table-header__select > button span svg {
+	font-size: 10px;
+}
+
+.sport-table-header__select[class*="open"] > button,
+.sport-table-header__select > button:hover {
+	background-color: #404249;
 }
 
 .sport-table-header__select--wins {
@@ -102,6 +121,7 @@
 	font-size: 10px;
 	letter-spacing: 0.5px;
 	font-weight: 600;
+	background-color: var(--white-color);
 }
 
 /* Стандартный режим */

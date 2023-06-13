@@ -1,18 +1,25 @@
-import { TotalBet } from "@betting-api/1xbet/typings/bet"
 import { ReactComponent as UpDownIcon } from "assets/icons/up-down-icon.svg"
 import cn from "classnames"
 import React, { FC, useContext, useState } from "react"
 import { Select } from "src/components"
 import { isEmptyArray } from "src/utils"
 import { SportTableContext } from "../.."
+import { TotalBet } from "../../types"
 import FactorValue from "./FactorValue"
 import styles from "./style.module.css"
 
-interface ITotalMarketProps extends React.ComponentProps<"div"> {
+interface ITotalMarketProps extends Omit<React.ComponentProps<"div">, "onClick"> {
 	totals: TotalBet[]
+	onClick?: (coefficient: number, type: "over" | "under", value: number) => void
 }
 
-const TotalMarket: FC<ITotalMarketProps> = ({ totals, className, children, ...rest }) => {
+const TotalMarket: FC<ITotalMarketProps> = ({
+	totals,
+	onClick = () => {},
+	className,
+	children,
+	...rest
+}) => {
 	const { mode } = useContext(SportTableContext)
 
 	const sharedProps = {
@@ -50,8 +57,14 @@ const TotalMarket: FC<ITotalMarketProps> = ({ totals, className, children, ...re
 				}))}
 				onChange={setSelected}
 			/>
-			<FactorValue>{totals[selected].under}</FactorValue>
-			<FactorValue>{totals[selected].over}</FactorValue>
+			<FactorValue onClick={(value: number) => onClick(value, "over", totals[selected].type)}>
+				{totals[selected].under}
+			</FactorValue>
+			<FactorValue
+				onClick={(value: number) => onClick(value, "under", totals[selected].type)}
+			>
+				{totals[selected].over}
+			</FactorValue>
 		</div>
 	)
 }
@@ -62,10 +75,10 @@ const TotalSelect: FC<React.ComponentProps<typeof Select<number>>> = props => {
 			{...props}
 			className={styles["totals-select"]}
 			label={
-				<div>
+				<>
 					<span>{props.label}</span>
 					<UpDownIcon />
-				</div>
+				</>
 			}
 		/>
 	)

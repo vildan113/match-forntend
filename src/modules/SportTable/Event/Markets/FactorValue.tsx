@@ -1,13 +1,32 @@
-import { Bet, HandicapBet } from "@betting-api/1xbet/typings/bet"
 import cn from "classnames"
 import { FC } from "react"
 import styles from "./style.module.css"
 
-interface IFactorValueProps extends Omit<React.ComponentProps<"div">, "children"> {
-	children?: Bet | HandicapBet
+interface Bet {
+	v: number
 }
 
-const FactorValue: FC<IFactorValueProps> = ({ children, ...rest }) => {
+interface HandicapBet extends Bet {
+	type: number
+}
+
+type BaseFactorValueProps = Omit<React.ComponentProps<"div">, "children" | "onClick">
+
+interface IFactorValueBProps extends BaseFactorValueProps {
+	children?: Bet
+	onClick?: (value: number) => void
+}
+
+interface IFactorValueHBProps extends BaseFactorValueProps {
+	children?: HandicapBet
+	onClick?: (value: number, type: number) => void
+}
+
+const FactorValue: FC<IFactorValueBProps | IFactorValueHBProps> = ({
+	onClick = () => {},
+	children,
+	...rest
+}) => {
 	const classNames = [rest.className, styles["factor-value"]]
 
 	if (!children)
@@ -25,6 +44,7 @@ const FactorValue: FC<IFactorValueProps> = ({ children, ...rest }) => {
 			<div
 				{...rest}
 				className={cn(...classNames, styles["factor-value--composite"])}
+				onClick={() => onClick(children.v, children.type)}
 			>
 				<span>{children.type}</span>
 				<span>{children.v}</span>
@@ -35,6 +55,7 @@ const FactorValue: FC<IFactorValueProps> = ({ children, ...rest }) => {
 		<div
 			{...rest}
 			className={cn(...classNames)}
+			onClick={() => (onClick as (value: number) => void)(children.v)}
 		>
 			{children.v}
 		</div>

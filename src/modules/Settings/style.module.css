@@ -1,0 +1,60 @@
+.settings {
+	background-color: var(--white-color);
+	padding: 0 25px;
+}
+
+.settings > :not(:last-child) {
+	border-bottom: 1px solid #e7e9ee;
+	margin: 10px 0;
+}
+
+.settings > :last-child {
+	margin: 10px 0;
+}
+
+.settings h5 {
+	font-size: 14px;
+	margin: 0;
+}
+
+.settings__radio-group {
+	display: flex;
+	margin: 10px 0;
+	gap: 10px;
+	justify-content: space-between;
+}
+
+.settings__radio-group > label {
+	display: grid;
+	gap: 10px;
+	align-items: center;
+}
+
+.settings__radio-group > label:hover {
+	cursor: pointer;
+}
+
+.settings__radio-group > label input,
+.settings__radio-group > label span {
+	grid-row: 1;
+}
+
+.settings__radio-group > label input[type="radio"] {
+	cursor: pointer;
+}
+
+.settings__radio-group > label span {
+	font-size: 12px;
+	line-height: 12px;
+}
+
+.settings__radio-group > label img {
+	grid-column: 1/4;
+	width: 156px;
+	border-radius: 4px;
+	border: 2px solid #dadfe5;
+}
+
+.settings__radio-group > label:hover img {
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}

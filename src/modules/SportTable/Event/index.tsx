@@ -4,8 +4,8 @@ import cn from "classnames"
 import moment from "moment"
 import { FC, useContext, useEffect, useMemo, useState } from "react"
 import { Link } from "react-router-dom"
-import { IEvent } from "store/football"
 import { SportTableContext } from ".."
+import { IEvent } from "../types"
 import { HandicapMarket, Market, TotalMarket } from "./Markets"
 import styles from "./style.module.css"
 
@@ -16,7 +16,7 @@ interface IEventProps {
 const Event: FC<IEventProps> = ({
 	data: { isLive, team1, team2, team1_rus, team2_rus, score1, score2, markets, ...data }
 }) => {
-	const { mode, selectedMarkets } = useContext(SportTableContext)
+	const { mode, selectedMarkets, onBet } = useContext(SportTableContext)
 
 	const [minute, setMinute] = useState(data.minute)
 	const [seconds, setSeconds] = useState(data.seconds)
@@ -63,11 +63,11 @@ const Event: FC<IEventProps> = ({
 					className={styles["sport-table-event__main-name"]}
 				>
 					<span className={styles["sport-table-event__name-team1"]}>
-						{team1 || team1_rus}
+						{team1_rus || team1}
 					</span>
 					<span> — </span>
 					<span className={styles["sport-table-event__name-team2"]}>
-						{team2 || team2_rus}
+						{team2_rus || team2}
 					</span>
 				</Link>
 				{isLive && (
@@ -94,6 +94,9 @@ const Event: FC<IEventProps> = ({
 								<Market
 									key={market}
 									values={[markets.win1, markets.winX, markets.win2]}
+									onClick={(coefficient, type) =>
+										onBet({ event_id: data.id, market, type, coefficient })
+									}
 								/>
 							)
 						case "winsX":
@@ -101,6 +104,9 @@ const Event: FC<IEventProps> = ({
 								<Market
 									key={market}
 									values={[markets.win1X, markets.win12, markets.winX2]}
+									onClick={(coefficient, type) =>
+										onBet({ event_id: data.id, market, type, coefficient })
+									}
 								/>
 							)
 						case "handicaps":
@@ -109,6 +115,15 @@ const Event: FC<IEventProps> = ({
 									key={market}
 									handicaps1={markets.handicaps1}
 									handicaps2={markets.handicaps2}
+									onClick={(coefficient, type, value) =>
+										onBet({
+											event_id: data.id,
+											market,
+											type,
+											coefficient,
+											value
+										})
+									}
 								/>
 							)
 						case "totals":
@@ -116,6 +131,15 @@ const Event: FC<IEventProps> = ({
 								<TotalMarket
 									key={market}
 									totals={markets.totals}
+									onClick={(coefficient, type, value) =>
+										onBet({
+											event_id: data.id,
+											market,
+											type,
+											coefficient,
+											value
+										})
+									}
 								/>
 							)
 					}

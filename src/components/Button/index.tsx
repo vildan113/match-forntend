@@ -1,10 +1,11 @@
 import cn from "classnames"
-import React, { ComponentProps, FC } from "react"
+import React, { ComponentProps, FC, ForwardRefRenderFunction, Ref, forwardRef } from "react"
 import { Link, LinkProps } from "react-router-dom"
 import styles from "./style.module.css"
 
 interface IBaseProps {
 	type?: "default" | "primary"
+	disable?: boolean
 }
 
 type ButtonProps = IBaseProps &
@@ -15,15 +16,13 @@ type ButtonProps = IBaseProps &
 
 type AnchorProps = IBaseProps & Omit<LinkProps, "to"> & { href: string; htmlType?: never }
 
-const Button: FC<ButtonProps | AnchorProps> & { Group: any } = ({
-	type = "default",
-	className,
-	children,
-	...rest
-}) => {
+const Button: ForwardRefRenderFunction<HTMLElement, AnchorProps | ButtonProps> & {
+	Group: typeof Group
+} = ({ type = "default", disable, className, children, ...rest }, ref) => {
 	const sharedProps = {
-		className: cn(className, styles["button"], styles[`button--${type}`]),
-		children
+		className: cn(className, styles["button"], styles[`button--${type}`], {
+			[styles["button--disabled"]]: disable
+		})
 	}
 
 	if (rest.href !== undefined)
@@ -32,7 +31,11 @@ const Button: FC<ButtonProps | AnchorProps> & { Group: any } = ({
 				{...rest}
 				{...sharedProps}
 				to={rest.href}
-			/>
+				onClick={disable ? event => event.preventDefault() : rest.onClick}
+				ref={ref as Ref<HTMLAnchorElement>}
+			>
+				<span>{children}</span>
+			</Link>
 		)
 
 	return (
@@ -40,7 +43,11 @@ const Button: FC<ButtonProps | AnchorProps> & { Group: any } = ({
 			{...rest}
 			{...sharedProps}
 			type={rest.htmlType}
-		/>
+			onClick={disable ? event => event.preventDefault() : rest.onClick}
+			ref={ref as Ref<HTMLButtonElement>}
+		>
+			{children}
+		</button>
 	)
 }
 
@@ -56,4 +63,4 @@ const Group: FC<React.ComponentProps<"div">> = ({ className, children, ...rest }
 }
 
 Button.Group = Group
-export default Button
+export default forwardRef(Button)

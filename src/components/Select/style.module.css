@@ -4,19 +4,43 @@
 	font-size: 12px;
 }
 
-.select--open .select__button {
-	background-color: #35383f;
-}
-
 .select__button {
 	width: 100%;
+	height: 100%;
 	justify-content: space-between;
-	line-height: 24px;
+	background-color: #eceff3;
+	color: #0c151f;
+	font-weight: 600;
+	letter-spacing: 0.3px;
+	border: 1px dotted transparent;
+	border-radius: 4px;
+}
+
+.select__button-span {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.select--open .select__button {
+	border-color: #8c8a8a;
+}
+
+.select--open .select__button,
+.select__button:hover {
+	background-color: #dfe3e8;
 }
 
 .select__down-icon {
 	transition: transform 0.2s;
-	min-width: 10px;
+	font-size: 14px;
+	color: #bebfc1;
+	min-width: 14px;
+}
+
+.select--open .select__down-icon,
+.select__button:hover .select__down-icon {
+	color: #87919b;
 }
 
 .select--open .select__down-icon {
@@ -30,7 +54,7 @@
 	margin: 2px 0 0 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: var(--white-color);
+	background-color: #f2f4f7;
 	border-radius: 2px;
 	box-shadow: 0 4px 4px #00000026;
 }
@@ -44,7 +68,7 @@
 
 .select-option:hover {
 	color: #24668c;
-	background-color: #eceff3cc;
+	background-color: #dfe3e8;
 }
 
 .select-option--selected {

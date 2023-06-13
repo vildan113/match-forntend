@@ -1,9 +1,23 @@
 import { RefObject, useEffect } from "react"
 
-export default (callback: () => void, ref: RefObject<HTMLElement>) => {
+/**
+ * Вызывает предоставленную функцию обратного вызова,
+ * если происходит клик за пределами указанных HTML-элементов.
+ * @param callback - Функция, которая вызывается,
+ * если происходит клик за пределами элементов.
+ * @param refs - Массив ссылок на HTML-элементы для прослушивания.
+ */
+const useOutSideClick = <T extends HTMLElement>(
+	callback: () => void,
+	refs: RefObject<T>[]
+): void => {
 	useEffect(() => {
 		function handleClickOutside(event: MouseEvent) {
-			if (ref.current && !ref.current.contains(event.target as Node)) callback()
+			const isClickedOutside = refs.every(
+				ref => ref.current && !ref.current.contains(event.target as Node)
+			)
+
+			if (isClickedOutside) callback()
 		}
 
 		document.addEventListener("click", handleClickOutside)
@@ -11,5 +25,7 @@ export default (callback: () => void, ref: RefObject<HTMLElement>) => {
 		return () => {
 			document.removeEventListener("click", handleClickOutside)
 		}
-	}, [ref])
+	}, [refs])
 }
+
+export default useOutSideClick

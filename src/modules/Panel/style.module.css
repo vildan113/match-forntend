@@ -1,0 +1,73 @@
+.panel {
+	height: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.panel__settings,
+.panel__sport-mode {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.panel__sport-mode {
+	justify-content: space-evenly;
+}
+
+.panel__settings-button {
+	background-color: #eceff3;
+	border: 1px dotted transparent;
+	height: 100%;
+}
+
+.panel__settings-button svg {
+	filter: grayscale(1);
+	opacity: 0.5;
+}
+
+.panel__settings-button:hover {
+	background-color: #dfe3e8;
+}
+
+.panel__settings-button:hover svg {
+	filter: none;
+	opacity: 1;
+}
+
+.panel__settings-popover {
+	overflow: auto;
+	background-color: var(--white-color);
+	border-radius: 4px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.panel__sport-mode-button {
+	border-radius: 4px;
+	font-weight: 800;
+	height: 26px;
+	padding: 0 20px;
+	font-size: 13px;
+}
+
+.panel__sport-mode-button:not(.panel__sport-mode-button--active) {
+	background: none;
+	color: #7d8691;
+}
+
+.panel__sport-mode-button:not(.panel__sport-mode-button--active):hover {
+	color: #1b4d69;
+}
+
+.panel__sport-mode-button--active {
+	cursor: default;
+}
+
+.panel__sport-mode-button--active:hover {
+	background-color: #2f2f2f;
+}
+
+.panel__time-select {
+	min-width: 116px;
+}
