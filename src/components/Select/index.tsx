@@ -37,21 +37,19 @@ function Select<T extends Value>({
 	const [currentValue, setCurrentValue] = useState<T>()
 	const [isOpen, setIsOpen] = useState(false)
 
-	const dropdownRef = useRef<HTMLUListElement>(null)
+	const selectRef = useRef<HTMLDivElement>(null)
 
-	const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		event.stopPropagation()
+	const handleButtonClick = () => {
 		setIsOpen(!isOpen)
 	}
 
-	const handleOptionClick = (event: React.MouseEvent<HTMLLIElement, MouseEvent>, value: T) => {
-		event.stopPropagation()
+	const handleOptionClick = (value: T) => {
 		setCurrentValue(value)
 		setIsOpen(false)
 		onChange(value)
 	}
 
-	useOutSideClick(() => setIsOpen(false), [dropdownRef])
+	useOutSideClick(() => setIsOpen(false), [selectRef])
 
 	useEffect(() => {
 		if (currentValue == null) setCurrentValue(defaultValue)
@@ -91,7 +89,7 @@ function Select<T extends Value>({
 						className={cn({
 							[styles["select-option--selected"]]: isSelected
 						})}
-						onClick={event => handleOptionClick(event, option.value)}
+						onClick={() => handleOptionClick(option.value)}
 					>
 						{option.label || option.value}
 					</Option>
@@ -103,6 +101,7 @@ function Select<T extends Value>({
 
 	return (
 		<div
+			ref={selectRef}
 			style={style}
 			className={cn(className, styles["select"], { [styles["select--open"]]: isOpen })}
 		>
@@ -121,14 +120,7 @@ function Select<T extends Value>({
 					</>
 				)}
 			</Button>
-			{isOpen && (
-				<ul
-					ref={dropdownRef}
-					className={styles["select__dropdown"]}
-				>
-					{dropdown}
-				</ul>
-			)}
+			{isOpen && <ul className={styles["select__dropdown"]}>{dropdown}</ul>}
 		</div>
 	)
 }

@@ -53,7 +53,10 @@ const SportTable: FC<SportTableProps> = ({
 
 	const [isCollapse, setIsCollapse] = useState(false)
 
-	const handleToggle = () => {
+	const handleToggle = (event: any) => {
+		const target = event.target
+		if (target.closest("button")) return
+
 		setIsCollapse(prev => !prev)
 	}
 

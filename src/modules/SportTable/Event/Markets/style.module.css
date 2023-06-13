@@ -296,7 +296,7 @@
 
 @keyframes increase {
 	0% {
-		background-color: #ffffff00;
+		background-color: #f1f4f8;
 	}
 	10% {
 		background-color: #cfdfa8e6;
@@ -305,13 +305,13 @@
 		background-color: #cfdfa8e6;
 	}
 	100% {
-		background-color: #ffffff00;
+		background-color: #f1f4f8;
 	}
 }
 
 @keyframes decrease {
 	0% {
-		background-color: #ffffff00;
+		background-color: #f1f4f8;
 	}
 	10% {
 		background-color: #b43d3766;
@@ -320,6 +320,6 @@
 		background-color: #b43d3766;
 	}
 	100% {
-		background-color: #ffffff00;
+		background-color: #f1f4f8;
 	}
 }

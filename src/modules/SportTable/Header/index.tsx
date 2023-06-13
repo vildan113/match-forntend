@@ -2,7 +2,8 @@ import { ReactComponent as DownIcon } from "assets/icons/chevron-down.svg"
 import cn from "classnames"
 import { Select } from "components/index"
 import { FC, cloneElement, useContext } from "react"
-import { Markets, SportTableContext } from ".."
+import { SportTableContext } from ".."
+import { Markets } from "../types"
 import styles from "./style.module.css"
 
 interface IHeaderProps extends React.ComponentProps<"div"> {
