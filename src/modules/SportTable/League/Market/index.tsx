@@ -1,6 +1,7 @@
 import cn from "classnames"
 import { FC, useContext } from "react"
-import { Markets, SportTableContext } from "../.."
+import { SportTableContext } from "../../index"
+import { Markets } from "../../types"
 import styles from "./style.module.css"
 
 interface IMarketsProps extends React.ComponentProps<"div"> {
