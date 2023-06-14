@@ -2,7 +2,7 @@ export type Markets = "wins" | "winsX" | "handicaps" | "totals"
 
 export type BaseBetData = {
 	event_id: number
-	market: string
+	market: Markets
 	coefficient: number
 }
 
