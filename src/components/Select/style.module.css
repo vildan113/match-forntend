@@ -1,0 +1,90 @@
+.select {
+	position: relative;
+	width: 100%;
+	font-size: 12px;
+}
+
+.select__button {
+	width: 100%;
+	height: 100%;
+	justify-content: space-between;
+	background-color: #eceff3;
+	color: #0c151f;
+	font-weight: 600;
+	letter-spacing: 0.3px;
+	border: 1px dotted transparent;
+	border-radius: 4px;
+}
+
+.select__button-span {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.select--open .select__button {
+	border-color: #8c8a8a;
+}
+
+.select--open .select__button,
+.select__button:hover {
+	background-color: #dfe3e8;
+}
+
+.select__down-icon {
+	transition: transform 0.2s;
+	font-size: 14px;
+	color: #bebfc1;
+	min-width: 14px;
+}
+
+.select--open .select__down-icon,
+.select__button:hover .select__down-icon {
+	color: #87919b;
+}
+
+.select--open .select__down-icon {
+	transform: rotate(-180deg);
+}
+
+.select__dropdown {
+	position: absolute;
+	z-index: var(--z-index-select-dropdown);
+	width: 100%;
+	margin: 2px 0 0 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #f2f4f7;
+	border-radius: 2px;
+	box-shadow: 0 4px 4px #00000026;
+}
+
+.select-option {
+	list-style-type: none;
+	color: #5e6978;
+	cursor: pointer;
+	padding: 5px 10px;
+}
+
+.select-option:hover {
+	color: #24668c;
+	background-color: #dfe3e8;
+}
+
+.select-option--selected {
+	color: #000;
+	background-color: #eceff380;
+	font-weight: 500;
+}
+
+.select-option__caption {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+	.select__button {
+		line-height: 30px;
+	}
+}

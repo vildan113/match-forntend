@@ -1,0 +1,72 @@
+.market {
+	display: flex;
+	justify-content: space-around;
+	text-transform: uppercase;
+	box-sizing: border-box;
+	font-size: 10px;
+	font-weight: 600;
+}
+
+.market--default {
+}
+
+.market--compact {
+}
+
+.market--wins {
+	width: var(--wins-market-width);
+}
+
+.market--winsX {
+	width: var(--winsX-market-width);
+}
+
+.market--handicaps {
+	width: var(--handicaps-market-width);
+}
+
+.market--totals {
+	width: var(--totals-market-width);
+}
+
+.market__value {
+}
+
+/* Стандартный режим */
+
+.market--default .market {
+}
+
+/* Компактный режим */
+
+.market--compact.market--wins {
+	width: var(--wins-market-width-cp);
+}
+
+.market--compact.market--winsX {
+	width: var(--winsX-market-width-cp);
+}
+
+.market--compact.market--handicaps {
+	width: var(--handicaps-market-width-cp);
+}
+
+.market--compact.market--totals {
+	width: var(--totals-market-width-cp);
+}
+
+/* Большой экран */
+
+@media screen and (max-width: 1280px) {
+	.market:first-child {
+		display: none;
+	}
+}
+
+/* Средний экран */
+
+@media screen and (max-width: 1024px) {
+	.market:not(:last-child) {
+		display: none;
+	}
+}

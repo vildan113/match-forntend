@@ -1,0 +1,25 @@
+.sidebar__wrap {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.sidebar__content {
+	width: calc(100% - 36px);
+	height: 100%;
+	background-color: #f7f7f7;
+}
+
+.sidebar__close-icon {
+	font-size: 12px;
+	cursor: pointer;
+	color: var(--white-color);
+	margin-top: 16px;
+	margin-left: 8px;
+}
+
+@media screen and (min-width: 767px) {
+	.sidebar {
+		display: none;
+	}
+}

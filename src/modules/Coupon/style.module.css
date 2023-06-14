@@ -1,0 +1,129 @@
+.coupon {
+	display: flex;
+	background-color: #1e2129;
+	border-radius: 4px;
+	color: var(--white-color);
+	padding: 7px;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.coupon__header {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	cursor: default;
+}
+
+.coupon__header h5 {
+	text-transform: uppercase;
+	margin: 0;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+.coupon__bets {
+	background-color: #404249;
+	border-radius: 4px;
+}
+
+.coupon__bets-header {
+	padding: 0 8px;
+	display: flex;
+	height: 23px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.coupon__bets-header span {
+	font-size: 11px;
+	line-height: 12px;
+	color: #e5e5e5;
+}
+
+.coupon__bets-list {
+	background-color: white;
+	color: #000;
+}
+
+.coupon__bets-list > div {
+	border-bottom: 1px solid #eaebef;
+}
+
+.coupon__bets-list > div:first-child {
+	height: 20px;
+}
+
+.coupon__bets-list > div:first-child > span {
+	color: #3b6291;
+	font-size: 11px;
+	line-height: 12px;
+	font-weight: 600;
+	padding-left: 25px;
+}
+
+.coupon__bets-footer {
+	padding: 8px;
+}
+
+.coupon__bets-footer button {
+	width: 100%;
+	text-transform: uppercase;
+	background-color: #69727e;
+	border-radius: 4px;
+	font-size: 11px;
+	height: 26px;
+	font-weight: 600;
+}
+
+.coupon__bets-footer button:hover {
+	background-color: #778290;
+}
+
+.coupon__crear-button {
+	padding: 5px;
+	border-radius: 0;
+	height: 16px;
+	width: 16px;
+	background-color: transparent;
+}
+
+.coupon__crear-button:hover {
+	background-color: #66686d;
+}
+
+.coupon__crear-button svg {
+	min-width: 7px;
+}
+
+.coupon-bet {
+	display: flex;
+	font-size: 11px;
+	line-height: 20px;
+}
+
+.coupon-bet > div:first-child {
+	width: 22px;
+	min-width: 22px;
+	min-height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-right: 1px solid #eaebef;
+}
+
+.coupon-bet .coupon__crear-button {
+	color: #666666;
+}
+
+.coupon-bet .coupon__crear-button:hover {
+	background-color: #e6e6e6;
+}
+
+.coupon-bet__bet-info {
+	padding: 5px;
+}
+
+.coupon-bet__event_name {
+}

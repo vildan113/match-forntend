@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
+:root {
+	--body-font: "Nunito Sans", sans-serif;
+	--dark-color: #0d0e11;
+	--body-color: #f6f6f6;
+	--white-color: #ffffff;
+	--header_height: 50px;
+
+	--wins-market-width: 158px;
+	--winsX-market-width: 158px;
+	--handicaps-market-width: 188px;
+	--totals-market-width: 158px;
+
+	--wins-market-width-cp: 128px;
+	--winsX-market-width-cp: 128px;
+	--handicaps-market-width-cp: 164px;
+	--totals-market-width-cp: 133px;
+
+	--z-index-sport-league-header: 2;
+	--z-index-sport-table-header: 3;
+	--z-index-select-dropdown: 5;
+	--z-index-drawer-mask: 6;
+	--z-index-drawer: 7;
+
+	--scrollbar-background: transparent;
+	--thumb-background: #ccd2d4;
+}
+
+*::-webkit-scrollbar {
+	width: 6px;
+}
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--thumb-background) var(--scrollbar-background);
+}
+
+*::-webkit-scrollbar-track {
+	background: var(--scrollbar-background);
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--thumb-background);
+	border-radius: 6px;
+	border: 3px solid var(--scrollbar-background);
+}
+
+body {
+	font-family: var(--body-font);
+	background-color: var(--body-color);
+}
+
+img {
+	border: 0;
+	max-width: 100%;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+h1 {
+	margin: 20px 0;
+	font-size: 38px;
+	line-height: 44px;
+	font-weight: bold;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+a {
+	text-decoration: none;
+	color: unset;
+}
+
+.container {
+	max-width: 1920px;
+	margin: 0 auto;
+}
