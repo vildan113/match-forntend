@@ -12,8 +12,24 @@ interface IHeaderProps extends React.ComponentProps<"div"> {
 	caption: string
 }
 
-const Header: FC<IHeaderProps> = ({ collapsed, icon, caption, className, children, ...rest }) => {
+const Header: FC<IHeaderProps> = ({
+	collapsed,
+	icon,
+	caption,
+	className,
+	children,
+	onClick,
+	...rest
+}) => {
 	const { mode, markets, selectedMarkets, setState } = useContext(SportTableContext)
+
+	const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+		const target = event.target
+		if (target instanceof HTMLElement)
+			if (target.closest("button") || target.closest("ul")) return
+
+		onClick?.(event)
+	}
 
 	const handleChangeMarkets = (index: number, value: Markets) => {
 		const cur = [...selectedMarkets]
@@ -42,6 +58,7 @@ const Header: FC<IHeaderProps> = ({ collapsed, icon, caption, className, childre
 					[styles["sport-table-header--collapsed"]]: collapsed
 				}
 			)}
+			onClick={handleClick}
 			{...rest}
 		>
 			{cloneElement(icon, {
