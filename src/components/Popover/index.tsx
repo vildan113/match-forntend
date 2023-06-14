@@ -56,14 +56,6 @@ interface CustomClientRect {
 	width: number
 }
 
-const rectsAreEqual = (rectA: CustomClientRect, rectB: CustomClientRect) =>
-	rectA.bottom === rectB.bottom &&
-	rectA.height === rectB.height &&
-	rectA.left === rectB.left &&
-	rectA.right === rectB.right &&
-	rectA.top === rectB.top &&
-	rectA.width === rectB.width
-
 const Popover: FC<IPopoverProps> & {
 	Trigger: typeof Trigger
 	Content: typeof Content
@@ -179,12 +171,6 @@ const Content: FC<IContentProps> = ({
 
 		return { left: left > padding ? left : padding, top: top > padding ? top : padding }
 	}
-
-	// const getMaxHeight = ({
-	// 	popoverRect
-	// }: { popoverRect: DOMRect }) => {
-	// 	return window.innerHeight - popoverRect.top - padding
-	// }
 
 	useLayoutEffect(() => {
 		let animationFrameId: number

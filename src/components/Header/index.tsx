@@ -97,12 +97,14 @@ const Header: FC = () => {
 					<Button
 						type="default"
 						className="header__button"
+						disabled
 					>
 						Войти
 					</Button>
 					<Button
 						type="primary"
 						className="header__button"
+						disabled
 					>
 						Регистрация
 					</Button>

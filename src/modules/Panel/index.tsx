@@ -73,7 +73,7 @@ const Panel: FC<ISettingsProps> = ({ live, className, ...props }) => {
 			<div className={styles["panel__sport-mode"]}>
 				<Button
 					href="/sports"
-					disable={!live}
+					disabled={!live}
 					className={cn([styles["panel__sport-mode-button"]], {
 						[styles["panel__sport-mode-button--active"]]: !live
 					})}
@@ -82,7 +82,7 @@ const Panel: FC<ISettingsProps> = ({ live, className, ...props }) => {
 				</Button>
 				<Button
 					href="/live"
-					disable={live}
+					disabled={live}
 					className={cn([styles["panel__sport-mode-button"]], {
 						[styles["panel__sport-mode-button--active"]]: live
 					})}

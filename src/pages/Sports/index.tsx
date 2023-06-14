@@ -2,7 +2,8 @@ import { ReactComponent as FootballIcon } from "assets/icons/football-icon.svg"
 import cn from "classnames"
 import { Empty, Footer, LogoLoader } from "components/index"
 import { observer } from "mobx-react-lite"
-import { Panel, SportTable } from "modules/index"
+import { IBetData, IHandicapBetData, ITotalBetData } from "modules/SportTable/types"
+import { Coupon, Panel, SportTable } from "modules/index"
 import { FC, useLayoutEffect } from "react"
 import store from "store/index"
 import styles from "./style.module.css"
@@ -12,7 +13,9 @@ interface ISportsProps {
 }
 
 const Sports: FC<ISportsProps> = ({ live }) => {
-	const handleBet = console.log
+	const handleBet = (bet: IBetData | IHandicapBetData | ITotalBetData) => {
+		store.coupon.update(bet)
+	}
 
 	useLayoutEffect(() => {
 		const handleResize = () => {
@@ -49,7 +52,7 @@ const Sports: FC<ISportsProps> = ({ live }) => {
 						<>
 							<SportTable
 								mode={store.settings.mode}
-								data={store.football.data}
+								data={store.football.leagues}
 								sport={{ icon: <FootballIcon />, name: "Футбол" }}
 								markets={[
 									{ value: "winsX", label: "Двойной исход" },
@@ -62,7 +65,7 @@ const Sports: FC<ISportsProps> = ({ live }) => {
 							/>
 							<SportTable
 								mode={store.settings.mode}
-								data={store.football.data}
+								data={store.football.leagues}
 								sport={{ icon: <FootballIcon />, name: "Футбол" }}
 								markets={[
 									{ value: "winsX", label: "Двойной исход" },
@@ -78,7 +81,9 @@ const Sports: FC<ISportsProps> = ({ live }) => {
 					)}
 				</div>
 			</div>
-			<div className="sport-page__coupon-layout"></div>
+			<div className={styles["sport-page__coupon-layout"]}>
+				<Coupon />
+			</div>
 		</div>
 	)
 }

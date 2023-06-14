@@ -5,7 +5,7 @@ import styles from "./style.module.css"
 
 interface IBaseProps {
 	type?: "default" | "primary"
-	disable?: boolean
+	disabled?: boolean
 }
 
 type ButtonProps = IBaseProps &
@@ -18,10 +18,10 @@ type AnchorProps = IBaseProps & Omit<LinkProps, "to"> & { href: string; htmlType
 
 const Button: ForwardRefRenderFunction<HTMLElement, AnchorProps | ButtonProps> & {
 	Group: typeof Group
-} = ({ type = "default", disable, className, children, ...rest }, ref) => {
+} = ({ type = "default", disabled, className, children, ...rest }, ref) => {
 	const sharedProps = {
 		className: cn(className, styles["button"], styles[`button--${type}`], {
-			[styles["button--disabled"]]: disable
+			[styles["button--disabled"]]: disabled
 		})
 	}
 
@@ -31,7 +31,7 @@ const Button: ForwardRefRenderFunction<HTMLElement, AnchorProps | ButtonProps> &
 				{...rest}
 				{...sharedProps}
 				to={rest.href}
-				onClick={disable ? event => event.preventDefault() : rest.onClick}
+				onClick={disabled ? event => event.preventDefault() : rest.onClick}
 				ref={ref as Ref<HTMLAnchorElement>}
 			>
 				<span>{children}</span>
@@ -43,7 +43,7 @@ const Button: ForwardRefRenderFunction<HTMLElement, AnchorProps | ButtonProps> &
 			{...rest}
 			{...sharedProps}
 			type={rest.htmlType}
-			onClick={disable ? event => event.preventDefault() : rest.onClick}
+			onClick={disabled ? event => event.preventDefault() : rest.onClick}
 			ref={ref as Ref<HTMLButtonElement>}
 		>
 			{children}

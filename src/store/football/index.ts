@@ -4,7 +4,7 @@ import { makeAutoObservable } from "mobx"
 import moment from "moment"
 import { isEmptyArray } from "src/utils"
 
-interface IEvent extends XBetFootballMatch {
+export interface IEvent extends XBetFootballMatch {
 	minute: number
 	seconds: number
 	country: string
@@ -17,8 +17,8 @@ interface ILeague extends XBetLeague {
 type Data = ILeague & { events: IEvent[] }
 
 class FootballStore {
-	data: Data[] = []
-	leagues: ILeague[] = []
+	leagues: Data[] = []
+	events: IEvent[] = []
 	isLoading = false
 	isEmpty = true
 	isSuccess = false
@@ -51,6 +51,8 @@ class FootballStore {
 				return moment(a.date_start).diff(moment(b.date_start))
 			})
 
+			this.events = sortedEvents
+
 			const data = sortedEvents.reduce<Data[]>((acc, match) => {
 				const league = acc.find(league => league.league_id === match.league.league_id)
 
@@ -67,11 +69,7 @@ class FootballStore {
 				return acc
 			}, [])
 
-			this.data = data
-			this.leagues = data.map(league => {
-				const { events, ...rest } = league
-				return rest
-			})
+			this.leagues = data
 
 			this.isSuccess = true
 			this.isEmpty = isEmptyArray(sortedEvents)
