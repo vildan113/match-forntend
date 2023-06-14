@@ -71,3 +71,11 @@
 	padding-right: 5px;
 	padding-bottom: 10px;
 }
+
+/* Мобилы */
+
+@media screen and (max-width: 767px) {
+	.sport-page__coupon-layout {
+		display: none;
+	}
+}
