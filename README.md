@@ -33,8 +33,8 @@ The website features a fully responsive design, ensuring seamless user experienc
 
 ## 🚀 Installation and Running
 
-1. Clone the repository to your local machine: `git clone https://github.com/your-username/your-repo.git`
-2. Navigate to the project directory: `cd your-repo`
+1. Clone the repository to your local machine: `git clone https://github.com/vildan113/match-forntend.git`
+2. Navigate to the project directory: `cd match-forntend`
 3. Install project dependencies: `npm install`
 4. Start the project: `npm run dev`
 
