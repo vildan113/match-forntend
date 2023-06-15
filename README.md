@@ -1,47 +1,56 @@
-# Match
+<p align="center">
+  <img src="https://i.imgur.com/7SQ3owl.png" alt="Match Logo">
+</p>
 
-## Project Description
+<p align="center">
+  Mini replica of the frontend part of a popular sports betting website, showcasing my web development skills and abilities.
+</p>
 
-This project is a mini replica of the frontend part of a popular sports betting website. It is created to showcase my skills and abilities in web development. The project includes the core features and design of the original website to demonstrate my expertise in developing user interfaces.
+## 🚀 Project Description
 
-## Technologies Used
+This project is a mini replica of the frontend part of a popular sports betting website. It has been created to showcase my skills and abilities in web development. The project includes the core features and design of the original website, demonstrating my expertise in developing user interfaces.
+
+## 🛠️ Technologies Used
 
 - React
 - TypeScript
 - MobX
 
-## Project Setup
+## ⚙️ Project Setup
 
 - Vite.js
 
-## Functionality
+## 🎯 Functionality
 
-- **Match Viewing**: Users can view a list of available football matches.
-- **Markets and Bets**: Users can view available markets and place bets on football matches.
-- **Coupon Creation**: Users can create a coupon with bets on selected matches.
-- **Settings**: Users can customize the appearance of the website.
+- **Match Viewing**: Users can browse a comprehensive list of available football matches.
+- **Markets and Bets**: Users can explore diverse markets and place bets on football matches.
+- **Coupon Creation**: Users have the ability to create personalized coupons with bets on their selected matches.
+- **Settings**: Users can customize and personalize the appearance of the website to suit their preferences.
 
-## Responsive Design
+## 📱 Responsive Design
 
-The website is fully responsive and displays correctly on various devices, including desktop computers, tablets, and mobile devices.
+The website features a fully responsive design, ensuring seamless user experience across various devices, including desktop computers, tablets, and mobile devices.
 
-## Installation and Running
+## 🚀 Installation and Running
 
 1. Clone the repository to your local machine: `git clone https://github.com/your-username/your-repo.git`
 2. Navigate to the project directory: `cd your-repo`
-3. Install dependencies: `npm install`
-4. Run the project: `npm run dev`
+3. Install project dependencies: `npm install`
+4. Start the project: `npm run dev`
 
-## Project Status
+## 🚧 Project Status
 
-This project is actively being developed. Currently, work is underway to implement core features and enhance the design. Additional changes and improvements will be made as the project progresses.
+This project is actively under development. Currently, we are focusing on implementing core features and refining the design. As the project progresses, further enhancements and improvements will be incorporated.
 
-## Contributions and Development
+## 🤝 Contributions and Development
 
-If you would like to contribute or improve this project, you can do the following:
+If you would like to contribute or enhance this project, you can follow these steps:
 
 1. Fork this repository.
-2. Create a branch for your changes: `git checkout -b feature/your-feature`
-3. Make the necessary changes and commit: `git commit -m "Add feature"`
+2. Create a new branch for your changes: `git checkout -b feature/your-feature`
+3. Implement the necessary changes and commit them: `git commit -m "Add feature"`
 4. Push the changes to your fork: `git push origin feature/your-feature`
-5. Create a Pull Request to the original repository.
+5. Create a Pull Request in the original repository to submit your changes for review and integration.
+
+🙏 We welcome any contributions and appreciate your support in making this project even better!
+
