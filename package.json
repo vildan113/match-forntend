@@ -1,8 +1,17 @@
 {
 	"name": "match",
-	"private": true,
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"type": "module",
+	"author": "Vildan",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vildan113/match-forntend.git"
+	},
+	"bugs": {
+	    	"url": "https://github.com/vildan113/match-forntend/issues"
+	},
+	"homepage": "https://github.com/vildan113/match-forntend#readme",
 	"scripts": {
 		"dev": "vite --port 3000 --open",
 		"build": "tsc && vite build",
