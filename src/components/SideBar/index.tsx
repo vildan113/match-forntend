@@ -1,3 +1,4 @@
+import { ReactComponent as ChevronIcon } from "assets/icons/chevron-down.svg"
 import { ReactComponent as CloseIcon } from "assets/icons/close-icon.svg"
 import { FC } from "react"
 import { Button } from ".."
@@ -23,17 +24,28 @@ const SideBar: FC<ISideBarProps> = ({ isOpen, onClose }) => {
 							href="/sports"
 							onClick={onClose}
 						>
-							Спорт
+							<span>Спорт</span>
+							<ChevronIcon />
 						</Button>
 						<Button
 							href="/live"
 							onClick={onClose}
 						>
-							Live
+							<span>Live</span>
+							<ChevronIcon />
 						</Button>
-						<Button disabled>Акции</Button>
-						<Button disabled>Статистика</Button>
-						<Button disabled>Результаты</Button>
+						<Button disabled>
+							<span>Акции</span>
+							<ChevronIcon />
+						</Button>
+						<Button disabled>
+							<span>Статистика</span>
+							<ChevronIcon />
+						</Button>
+						<Button disabled>
+							<span>Результаты</span>
+							<ChevronIcon />
+						</Button>
 					</div>
 				</div>
 				<div

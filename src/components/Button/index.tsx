@@ -49,7 +49,7 @@ const Button: React.FC<AnchorProps | ButtonProps> & { Group: typeof Group } = ({
 				{...sharedProps}
 				to={rest.href}
 			>
-				<span>{children}</span>
+				{children}
 			</Link>
 		)
 
