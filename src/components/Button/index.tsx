@@ -1,4 +1,5 @@
 import cn from "classnames"
+import { forwardRef } from "react"
 import { Link, LinkProps } from "react-router-dom"
 import styles from "./style.module.css"
 
@@ -15,15 +16,14 @@ type ButtonProps = IBaseProps &
 
 type AnchorProps = IBaseProps & Omit<LinkProps, "to"> & { href: string; htmlType?: never }
 
-const Button: React.FC<AnchorProps | ButtonProps> & { Group: typeof Group } = ({
-	type = "default",
-	disabled,
-	className,
-	onClick,
-	children,
-	...rest
-}) => {
+const Button: React.ForwardRefRenderFunction<
+	HTMLAnchorElement & HTMLButtonElement,
+	AnchorProps | ButtonProps
+> & {
+	Group: typeof Group
+} = ({ type = "default", disabled, className, onClick, children, ...rest }, ref) => {
 	const sharedProps = {
+		ref,
 		onClick: (
 			event: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
 				React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -76,4 +76,6 @@ const Group: React.FC<React.ComponentProps<"div">> = ({ className, children, ...
 }
 
 Button.Group = Group
-export default Button
+export default forwardRef(Button) as React.ForwardRefExoticComponent<
+	(AnchorProps | ButtonProps) & React.RefAttributes<HTMLElement>
+> & { Group: typeof Group }
