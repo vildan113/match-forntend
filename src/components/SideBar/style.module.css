@@ -1,13 +1,50 @@
 .sidebar__wrap {
+	--close-area-width: 36px;
 	display: flex;
 	align-items: flex-start;
 	width: 100%;
 }
 
 .sidebar__content {
-	width: calc(100% - 36px);
+	width: calc(100% - var(--close-area-width));
 	height: 100%;
 	background-color: #f7f7f7;
+}
+
+.sidebar__menu {
+	display: flex;
+	padding: 16px;
+	gap: 8px;
+	flex-direction: column;
+}
+
+.sidebar__menu > a,
+.sidebar__menu > button {
+	font-size: 14px;
+	height: 40px;
+	color: black;
+	background-color: white;
+	border: 1px solid #eaeaea;
+	justify-content: space-between;
+	padding: 12px;
+	font-weight: 600;
+}
+
+.sidebar__menu > a > svg,
+.sidebar__menu > button > svg {
+	transform: rotate(270deg);
+	color: #949494;
+	font-size: 16px;
+}
+
+.sidebar__menu > a:hover,
+.sidebar__menu > button:hover {
+	background-color: #f2f2f2;
+}
+
+.sidebar__close-area {
+	width: var(--close-area-width);
+	height: 100%;
 }
 
 .sidebar__close-icon {

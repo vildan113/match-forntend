@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
-	overflow: hidden;
 }
 
 .panel__settings,
@@ -14,7 +13,6 @@
 
 .panel__sport-mode {
 	justify-content: space-evenly;
-	overflow: hidden;
 }
 
 .panel__settings-button {
@@ -50,13 +48,6 @@
 	height: 26px;
 	padding: 0 20px;
 	font-size: 13px;
-	overflow: hidden;
-}
-
-.panel__sport-mode-button > span {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
 }
 
 .panel__sport-mode-button:not(.panel__sport-mode-button--active) {
