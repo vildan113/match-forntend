@@ -11,6 +11,30 @@
 	background-color: #f7f7f7;
 }
 
+.sidebar__menu {
+	display: flex;
+	padding: 16px;
+	gap: 8px;
+	flex-direction: column;
+}
+
+.sidebar__menu > a,
+.sidebar__menu > button {
+	font-size: 14px;
+	height: 40px;
+	color: black;
+	background-color: white;
+	border: 1px solid #eaeaea;
+	justify-content: flex-start;
+	padding: 12px;
+	font-weight: 600;
+}
+
+.sidebar__menu > a:hover,
+.sidebar__menu > button:hover {
+	background-color: #f2f2f2;
+}
+
 .sidebar__close-area {
 	width: var(--close-area-width);
 	height: 100%;
