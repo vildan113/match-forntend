@@ -1,8 +1,8 @@
 .panel {
-	height: 32px;
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+	overflow: hidden;
 }
 
 .panel__settings,
@@ -14,6 +14,7 @@
 
 .panel__sport-mode {
 	justify-content: space-evenly;
+	overflow: hidden;
 }
 
 .panel__settings-button {
@@ -49,6 +50,13 @@
 	height: 26px;
 	padding: 0 20px;
 	font-size: 13px;
+	overflow: hidden;
+}
+
+.panel__sport-mode-button > span {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .panel__sport-mode-button:not(.panel__sport-mode-button--active) {
@@ -66,6 +74,12 @@
 
 .panel__sport-mode-button--active:hover {
 	background-color: #2f2f2f;
+}
+
+@media screen and (max-width: 335px) {
+	.panel__sport-mode-button {
+		padding: 0 10px;
+	}
 }
 
 .panel__time-select {
