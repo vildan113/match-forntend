@@ -17,10 +17,12 @@ const SideBar: FC<ISideBarProps> = ({ isOpen, onClose }) => {
 		>
 			<div className={styles["sidebar__wrap"]}>
 				<div className={styles["sidebar__content"]}></div>
-				<CloseIcon
-					className={styles["sidebar__close-icon"]}
+				<div
+					className={styles["sidebar__close-area"]}
 					onClick={onClose}
-				/>
+				>
+					<CloseIcon className={styles["sidebar__close-icon"]} />
+				</div>
 			</div>
 		</Drawer>
 	)
